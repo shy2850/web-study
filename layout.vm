@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<base target="_blank">
+    <meta name="author" content="时扬扬">
+	<title><%=request.$.title.replace(/\/ppt\/\d+\.([^.]+)\.jade/,"$1")%></title>
+	<link rel="stylesheet" href="css/ppt.css">
+	<script>document.createElement('header');document.createElement('footer');document.createElement('section');</script>
+</head>
+<body>
+	<div class="main-content">
+        <ul class="main-panel">
+			<!--!$[placeholder]!!-->
+        </ul>
+    </div>
+	<script src="http://apps.bdimg.com/libs/jquery/1.10.0/jquery.min.js"></script>
+	<script src="js/utils.js?handle=false"></script>
+	<script src="js/ppt.js?t=<%=+new Date%>"></script>
+</body>
+</html>
+<script><% 
+	var jade = require('jade');
+
+	__p = __p.replace(/<!--!([\s\S\n\r]*?)!!-->/,function(match, str) {
+		return jade.render( str );
+	});
+	response.writeHead(200, {"Content-Type": "text/html","middleware-type":"html"}); 
+%></script>
