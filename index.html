@@ -1,0 +1,23 @@
+<style>
+    h2{text-align: center;}
+    a{line-height: 30px; height: 30px; display: block; width: 500px; margin: 0 auto; text-align: center;}
+</style>
+<h2>PPT list</h2>
+<%
+    return function(){
+        var fs = require("fs");
+        fs.readdir(request.util.conf.root+"/ppt/",function(error,files){ 
+            if(error){
+                response.end(  __p );
+            }else{
+                files.map(function(filename){
+                	var file = filename.replace(/\.jade$/,".html")
+                    if( file.match(/^\d+\./) ){
+                        __p += '<a href="ppt/'+(request.data._build_ ? file : filename) +'">'+file+'</a>';
+                    }
+                });
+                response.end(  __p );
+            }
+        });
+    };
+%>
