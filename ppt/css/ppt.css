@@ -269,3 +269,11 @@ code{white-space: pre;}
     font: normal 20px/1.5 'Microsoft Yahei';
     padding: .5em;
 }
+.section-main img{
+    max-width: 100%;
+    max-height: 480px;
+}
+.section-main img.block{
+    display: block;
+    margin: 0 auto;
+}
