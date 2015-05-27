@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<base target="_blank">
+    <meta name="author" content="时扬扬">
+	<title>sublime</title>
+	<link rel="stylesheet" href="css/ppt.css">
+	<script>document.createElement('header');document.createElement('footer');document.createElement('section');</script>
+</head>
+<body>
+	<div class="main-content">
+        <ul class="main-panel">
+			<li id="id-01"><section><header><h2>sublime 简介<span class="mini-title">前端神器sublime</span></h2></header><div class="section-main"><div class="mini-title">半免费的文本编辑器</div><ol><li>体积小： ≈6M</li><li>启动便捷, 媲美notepad/gedit </li><li>可免费使用</li><li>独特的代码高亮 (Monokai)</li><li>丰富的插件库 packageControl</li></ol></div><footer></footer></section></li><li id="id-02"><section><header><h2>下载和 packageControl 安装</h2></header><div class="section-main"><div class="mini-title">官网安装sublime-3 以及 packageControl</div><ol><li> <a href="http://www.sublimetext.com/">download</a></li><li> <a href="https://packagecontrol.io/">packageControl</a></li><li>安装 packageControl (注释部分为代理设置)</li></ol><code class="nopre prettyprint code">import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler(/*{"http":"192.168.1.1:8080"}*/)) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)</code></div><footer></footer></section></li><li id="id-03"><section><header><h2>插件安装和卸载 <span class="mini-title">packageControl install/remove</span></h2></header><div class="section-main"><div class="mini-title">快捷键: "ctrl + shift + p"</div><ol><li>install package</li><li>remove package</li><li>preferences -&gt; package settings</li><li>emmet settings</li></ol></div><footer></footer></section></li><li id="id-04"><section><header><h2>emmet 安装和使用</h2></header><div class="section-main"><div class="mini-title"> <a href="https://github.com/shy2850/web123/blob/master/course/2.Easy-Html.md">zencoding/emmet</a></div><img src="https://github.com/shy2850/web123/raw/master/course/images/2/emmet.gif" alt="emmet"/></div><footer></footer></section></li><li id="id-05"><section><header><h2>其他快捷键</h2></header><div class="section-main"><div class="mini-title">熟悉各种常用快捷键</div><ol><li>多行选择 ctrl + alt + (鼠标点击或者↑↓)</li><li>复制粘贴整行 ctrl + c </li><li>整行移动 ctrl + shift + (↑↓)</li><li>查找和替换 ctrl [+ shift] + f/h</li><li>多面板 alt + shift + (number)</li></ol></div><footer></footer></section></li>
+        </ul>
+    </div>
+	<script src="http://apps.bdimg.com/libs/jquery/1.10.0/jquery.min.js"></script>
+	<script src="js/utils.min.js"></script>
+	<script src="js/ppt.js?t=1432697896151"></script>
+</body>
+</html>
+<script></script>
