@@ -277,3 +277,6 @@ code{white-space: pre;}
     display: block;
     margin: 0 auto;
 }
+.nopre{
+    white-space: normal !important;
+}
