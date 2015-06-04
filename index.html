@@ -11,7 +11,7 @@
                 response.end(  __p );
             }else{
                 files.map(function(filename){
-                	var file = filename.replace(/\.jade$/,".html")
+                	var file = filename.replace(/\.\w+$/,".html")
                     if( file.match(/^\d+\./) ){
                         __p += '<a href="ppt/'+(request.data._build_ ? file : filename) +'">'+file+'</a>';
                     }
