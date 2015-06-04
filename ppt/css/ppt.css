@@ -1,1 +1,282 @@
-@charset "utf-8";body,div,ul,li,a,img,a img,dd,dl,dt,ol,table,tr,td,th{border:0;padding:0;margin:0;list-style:none;text-decoration:none}.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}.clearfix{display:inline-block}.clearfix{display:block}body{background:#ffe;height:800px;font-family:"Microsoft Yahei";overflow:hidden}.main-content{width:900px;margin:40px auto;position:relative;height:2000px}.main-panel{position:absolute;width:100%;top:0;left:0;bottom:0;padding:0}.main-panel>li{padding:0 0 100px 0}section{display:block;width:100%;background:0;color:#666}section header{display:block;font-family:"Microsoft Yahei";font-size:28px;padding-left:30px;color:#f60;line-height:60px;height:60px;background:#1a3265;border-radius:20px 20px 0 0;text-shadow:rgba(255,112,0,0.5) 3px 3px 5px}section header a{color:#f60}.mini-title{color:#0a0;font-size:24px}.section-main .mini-title{padding:.5em 0}section .section-main{font-size:30px;padding:20px 30px 0 30px;background-color:#eee;min-height:500px;position:relative}section footer{display:block;width:100%;height:20px;background-color:#eee;border-radius:0 0 20px 20px;text-align:center;color:#06f}section .section-main code{white-space:pre;font-size:18px;line-height:28px}section li{list-style:none;padding-left:30px}section ol li{list-style:inside decimal;line-height:2}.not-support{color:red;text-decoration:line-through}code{white-space:pre}.prettyprint{background:#272822;font:normal 16px/22px 'Arial';margin-left:40px;color:#fff;padding:1em;display:inline-block;border-radius:5px;color:#d1edff}.prettyprint .opn,.prettyprint .clo{color:#93a1a1}.prettyprint .fun{color:#dc322f}.prettyprint .linenums li{color:#1e347b}.prettyprint .var{color:teal}.prettyprint .str{color:#1dc116}.prettyprint .kwd{color:#e83737}.prettyprint .com{color:#428bdd}.prettyprint .typ{color:#ffaa3e}.prettyprint .lit{color:#d1edff}.prettyprint .pun{color:#d1edff}.prettyprint .tag{color:#d50}.prettyprint .atn{color:#ae2}.prettyprint .atv{color:#080}.prettyprint .dec{color:#606}.prettyprint .pln{color:#ffaa3e}.prettyprint li.hover{color:#66f;background:#0f192a;font-weight:bold}.prettyprint li.hover .com{color:#93a1a1}.prettyprint li.hover .lit{color:#d1edff}.prettyprint li.hover .pun,.prettyprint li.hover .opn,.prettyprint li.hover .clo{color:#93a1a1}.prettyprint li.hover .fun{color:#dc322f}.prettyprint li.hover .str,.prettyprint li.hover .atv{color:#D14}.prettyprint li.hover .kwd,.prettyprint li.hover .linenums .tag{color:#1e347b}.prettyprint li.hover .typ,.prettyprint li.hover .atn,.prettyprint li.hover .dec,.prettyprint li.hover .var{color:teal}.prettyprint li.hover .pln{color:#ffaa3e}#bg-color-picker{position:absolute;right:-195px;top:50px;width:195px;border-radius:7px;background:#f60;padding-left:20px;cursor:pointer}#bg-color-picker:hover{right:0}#easy-nav{position:fixed;font:normal 16px/1.5 "Microsoft Yahei";left:10px;top:20px;color:blue}#easy-nav li{list-style:inside none;padding-left:4px}#easy-nav li.current{background:#999;border-radius:5px}#easy-nav a{text-decoration:none}#easy-nav .mini-title{display:none}#html-inline-or-block dt span{letter-spacing:-2px}.animated{text-indent:0}#tip-title{position:absolute;background:#428bca;color:#fff;font:normal 20px/1.5 'Microsoft Yahei';padding:.5em}.section-main img{max-width:100%;max-height:480px}.section-main img.block{display:block;margin:0 auto}.nopre{white-space:normal!important}
+/**
+ * Created with IntelliJ IDEA.
+ * User: yangyang.shiyy
+ * Date: 12-8-3
+ * Time: 上午10:42
+ * To change this template use File | Settings | File Templates.
+ */
+@charset "utf-8";
+body, div, ul, li, a, img, a img, dd, dl, dt, ol, table, tr, td, th {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+/* clear fix */
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+/* hide from ie mac */
+.clearfix {
+    display: block;
+}
+
+body{
+    background: #ffe;
+    height: 800px;
+    font-family: "Microsoft Yahei"; 
+    overflow: hidden;
+}
+.main-content{
+    width: 900px;
+    margin: 40px auto;
+    position: relative;
+    height: 2000px;
+}
+.main-panel{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 0;
+}
+.main-panel > li{
+    padding: 0 0 100px 0;
+}
+section{
+    display: block;
+    width: 100%;
+    background: none;
+    color: #666;
+}
+section header{
+    display: block;
+    font-family: "Microsoft Yahei";
+    font-size: 28px;
+    padding-left: 30px;
+    color: #f60;
+    line-height: 60px;
+    height: 60px;
+    background: #1a3265;
+    border-radius: 20px 20px 0 0;
+    text-shadow: rgba(255, 112, 0, 0.5) 3px 3px 5px;
+}
+section header a{
+    color: #f60;
+}
+.mini-title{
+    color: #0a0;
+    font-size: 24px;
+}
+.section-main .mini-title{
+    padding: .5em 0;
+}
+section .section-main{
+    font-size: 30px;
+    padding: 20px 30px 0 30px;
+    background-color: #eee;
+    min-height: 500px;
+    position: relative;
+}
+section footer{
+    display: block;
+    width: 100%;
+    height: 20px;
+    background-color: #eee;
+    border-radius: 0 0 20px 20px;
+    text-align: center;
+    color: #06f;
+}
+
+section .section-main code{
+    white-space: pre;
+    font-size: 18px;
+    line-height: 28px;
+}
+section li{
+    list-style: none;
+    padding-left: 30px;
+}
+section ol li{
+    list-style: inside decimal;
+    line-height: 2;
+}
+.not-support{
+    color: red;
+    text-decoration: line-through;
+}
+
+/* prettify.css */
+code{white-space: pre;}
+/* prettify.css */
+.prettyprint {
+  background: #272822;
+  font:normal 16px/22px 'Arial'; 
+  margin-left:40px; 
+  color:#fff; 
+  padding:1em; 
+  display: inline-block; 
+  border-radius: 5px;
+  color: #D1EDFF;
+}
+
+.prettyprint .opn,
+.prettyprint .clo {
+  color: #93a1a1;
+}
+.prettyprint .fun {
+  color: #dc322f;
+}
+.prettyprint .linenums li {
+  color: #1e347b;
+}
+.prettyprint .var {
+  color: teal;
+}
+.prettyprint .str {
+  color: #1DC116;
+}
+.prettyprint .kwd {
+  color: #E83737;
+}
+.prettyprint .com {
+  color: #428BDD;
+}
+.prettyprint .typ {
+  color: #FFAA3E;
+}
+.prettyprint .lit {
+  color: #D1EDFF;
+}
+.prettyprint .pun{
+  color: #D1EDFF;
+}
+.prettyprint .tag {
+  color: #d50;
+}
+.prettyprint .atn {
+  color: #ae2;
+}
+.prettyprint .atv {
+  color: #080;
+}
+.prettyprint .dec {
+  color: #606;
+}
+.prettyprint .pln {
+  color: #FFAA3E;
+}
+.prettyprint li.hover {
+  color: #66f;
+  background: #0F192A;
+  font-weight: bold;
+}
+.prettyprint li.hover .com {
+  color: #93a1a1;
+}
+.prettyprint li.hover .lit {
+  color: #D1EDFF;
+}
+.prettyprint li.hover .pun,
+.prettyprint li.hover .opn,
+.prettyprint li.hover .clo {
+  color: #93a1a1;
+}
+.prettyprint li.hover .fun {
+  color: #dc322f;
+}
+.prettyprint li.hover .str,
+.prettyprint li.hover .atv {
+  color: #D14;
+}
+.prettyprint li.hover .kwd,
+.prettyprint li.hover .linenums .tag {
+  color: #1e347b;
+}
+.prettyprint li.hover .typ,
+.prettyprint li.hover .atn,
+.prettyprint li.hover .dec,
+.prettyprint li.hover .var {
+  color: teal;
+}
+.prettyprint li.hover .pln {
+  color: #FFAA3E;
+}
+
+
+/* farbtastic */
+#bg-color-picker{
+    position: absolute;
+    right: -195px; 
+    top: 50px; 
+    width: 195px;
+    border-radius:7px; 
+    background:#f60; 
+    padding-left:20px;
+    cursor: pointer;
+}
+#bg-color-picker:hover{
+    right: 0;
+}
+
+/**easy nav*/
+#easy-nav{
+    position: fixed;
+    font: normal 16px/1.5 "Microsoft Yahei";
+    left: 10px;
+    top: 20px;
+    color: blue;
+}
+#easy-nav li{
+    list-style: inside none;
+    padding-left: 4px;
+}
+#easy-nav li.current{
+    background: #999;
+    border-radius: 5px ;
+}
+#easy-nav a{
+    text-decoration: none;
+}
+#easy-nav .mini-title{
+    display: none;
+}
+
+#html-inline-or-block dt span{
+    letter-spacing: -2px;
+}
+
+.animated {
+    text-indent: 0;
+}
+
+#tip-title{
+    position: absolute;
+    background: #428bca;
+    color: #fff;
+    font: normal 20px/1.5 'Microsoft Yahei';
+    padding: .5em;
+}
+.section-main img{
+    max-width: 100%;
+    max-height: 480px;
+}
+.section-main img.block{
+    display: block;
+    margin: 0 auto;
+}
+.nopre{
+    white-space: normal !important;
+}

@@ -1,0 +1,272 @@
+<!doctype html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <title>Markdown - By 时扬扬</title>
+    <link rel="stylesheet" media="all" href="http://qdemo.sinaapp.com//css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="http://qdemo.sinaapp.com//css/phone.css">
+    <link rel="stylesheet" media="print" href="http://qdemo.sinaapp.com//css/pdf.css">
+    <link rel="stylesheet" href="http://qdemo.sinaapp.com//js/highlight/styles/monokai_sublime.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article>
+<h1 id="markdown-">Markdown 宗旨</h1>
+<h2 id="markdown-">Markdown 的目标是实现「易读易写」。</h2>
+<ul>
+<li>可读性，无论如何，都是最重要的。</li>
+<li>一份使用 Markdown 格式撰写的文件应该可以直接以纯文本发布，并且看起来不会像是由许多标签或是格式指令所构成。</li>
+<li>Markdown 语法受到一些既有 text-to-HTML 格式的影响，包括 Setext、atx、Textile、reStructuredText、Grutatext 和 EtText，而最大灵感来源其实是纯文本电子邮件的格式。</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h1 id="-html">兼容 HTML</h1>
+<p>Markdown 的目标是成为一种适用于网络的书写语言。<br>Markdown 不是想要取代 HTML，甚至也没有要和它相近，它的语法种类很少，只对应 HTML 标记的一小部分, 甚至兼容HTML。</p>
+<pre><code class="html">这是一个普通段落。
+
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Foo&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+这是另一个普通段落。
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h1 id="-">特殊字符自动转换</h1>
+<ul>
+<li>在 HTML 文件中，有两个字符需要特殊处理： &lt; 和 &amp; 。 &lt; 符号用于起始标签，&amp; 符号则用于标记 HTML 实体，如果你只是想要显示这些字符的原型，你必须要使用实体的形式，像是 &lt; 和 &amp;。</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h1 id="-">标题</h1>
+<pre><code class="markdown">This is an H1
+=============
+This is an H2
+-------------
+</code></pre>
+<p>或者</p>
+<pre><code class="markdown"># 这是 H1
+## 这是 H2
+###### 这是 H6
+</code></pre>
+<h1 id="-h1">这是 H1</h1>
+<h2 id="-h2">这是 H2</h2>
+<h6 id="-h6">这是 H6</h6>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h1 id="-">段落和换行</h1>
+<ul>
+<li>一个换行就是一个段落</li>
+<li>多个换行看做转化为多个 <br/></li>
+<li>普通段落不该用空格或制表符来缩进。(顶格写)</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h1 id="-">区块引用</h1>
+<p>引用的区块内也可以使用其他的 Markdown 语法：</p>
+<pre><code class="markdown">&gt; ### 这是一个标题。
+&gt; 1.   这是第一行列表项。
+&gt; 2.   这是第二行列表项。
+&gt; 给出一些例子代码：
+&gt;     return shell_exec(&quot;echo $input | $markdown_script&quot;);
+</code></pre>
+<blockquote>
+<h3 id="-">这是一个标题。</h3>
+<ol>
+<li>这是第一行列表项。</li>
+<li>这是第二行列表项。<br>给出一些例子代码：<br>return shell_exec(&quot;echo $input | $markdown_script&quot;);</li>
+</ol>
+</blockquote>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h1 id="-">列表</h1>
+<p>Markdown 支持有序列表和无序列表。<br>无序列表使用 <code>*</code> 、<code>+</code> 或是 <code>-</code> 作为列表标记：</p>
+<pre><code class="markdown">*   Red
+*   Green
+*   Blue
+</code></pre>
+<pre><code class="markdown">+   Red
++   Green
++   Blue
+</code></pre>
+<pre><code class="markdown">-   Red
+-   Green
+-   Blue
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h1 id="-">有序列表</h1>
+<p>有序列表则使用数字接着一个英文句点：</p>
+<pre><code class="markdown">1.   Red
+1.   Green
+1.   Blue
+</code></pre>
+<ol>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h1 id="-">复杂列表项</h1>
+<p>列表项目可以包含多个段落，每个项目下的段落都必须缩进 4 个空格或是 1 个制表符：</p>
+<pre><code class="markdown">1.  This is a list item with two paragraphs. Lorem ipsum dolor
+sit amet, consectetuer adipiscing elit. 
+    Vestibulum enim wisi, viverra nec, fringilla in, laoreet
+vitae, risus. 
+2.  Suspendisse id sem consectetuer libero luctus adipiscing.
+</code></pre>
+<ol>
+<li>This is a list item with two paragraphs. Lorem ipsum dolor<br>sit amet, consectetuer adipiscing elit.<br>Vestibulum enim wisi, viverra nec, fringilla in, laoreet<br>vitae, risus. </li>
+<li>Suspendisse id sem consectetuer libero luctus adipiscing.</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h1 id="-">代码区块</h1>
+<p>和程序相关的写作或是标签语言原始码通常会有已经排版好的代码区块，通常这些区块我们并不希望它以一般段落文件的方式去排版，而是照原来的样子显示，Markdown 会用 <code>pre</code> 和 <code>code</code> 标签来把代码区块包起来。</p>
+<pre><code>&lt;p&gt;这是一个普通段落：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;这是一个代码区块。
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h1 id="-">链接</h1>
+<ul>
+<li>Markdown 支持两种形式的链接语法： 行内式和参考式两种形式。<br>不管是哪一种，链接文字都是用 [方括号] 来标记。<br>要建立一个行内式的链接，只要在方块括号后面紧接着圆括号并插入网址链接即可，如果你还想要加上链接的 title 文字，只要在网址后面，用双引号把 title 文字包起来即可，例如：<pre><code>This is [an example](http://example.com/ &quot;Title&quot;) inline link.
+[This link](http://example.net/) has no title attribute.
+&lt;http://example.com/&gt;
+</code></pre><pre><code>&lt;p&gt;This is &lt;a href=&quot;http://example.com/&quot; title=&quot;Title&quot;&gt;
+an example&lt;/a&gt; inline link.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://example.net/&quot;&gt;This link&lt;/a&gt; has no
+title attribute.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://example.com/&quot;&gt;http://example.com/&lt;/a&gt;&lt;/p&gt;
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h1 id="-">强调</h1>
+<p>Markdown 使用星号（<em>）和底线（_）作为标记强调字词的符号，<br>被 </em> 或 <em> 包围的字词会被转成用 <code>em</code> 标签包围，<br>用两个 * 或 </em> 包起来的话，则会被转成 <code>strong</code>，例如：</p>
+<pre><code class="markdown">*single asterisks*
+_single underscores_
+**double asterisks**
+__double underscores__
+</code></pre>
+<p><em>single asterisks</em><br><em>single underscores</em><br><strong>double asterisks</strong><br><strong>double underscores</strong></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h1 id="-">代码</h1>
+<p>如果要标记一小段行内代码，你可以用反引号把它包起来（`），例如：</p>
+<pre><code>Use the `printf()` function.
+</code></pre><p>Use the <code>printf()</code> function.<br>如果要在代码区段内插入反引号，你可以用多个反引号来包含代码区段：</p>
+<pre><code>``There is a literal backtick (`) here.``
+</code></pre><p><code>There is a literal backtick (`) here.</code></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h1 id="-">图片</h1>
+<ul>
+<li>Markdown 使用一种和链接很相似的语法来标记图片，同样也允许两种样式： 行内式和参考式。<pre><code>![Alt text](/path/to/img.jpg)
+![Alt text](/path/to/img.jpg &quot;Optional title&quot;)
+</code></pre></li>
+<li>一个惊叹号 !</li>
+<li>接着一个方括号，里面放上图片的替代文字</li>
+<li>接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上 选择性的 &#39;title&#39; 文字。</li>
+<li>到目前为止， Markdown 还没有办法指定图片的宽高，如果你需要的话，你可以使用普通的 <code>img</code> 标签。</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h1 id="-">感谢及其他</h1>
+<ul>
+<li>PPT内容来自： <a href="http://www.markdown.cn/">http://www.markdown.cn/</a></li>
+<li><a href="http://markable.in/">http://markable.in/</a> </li>
+<li><a href="http://mahua.jser.me/">http://mahua.jser.me/</a> </li>
+<li>(马克飞象已收费)</li>
+<li><a href="https://github.com/ksky521/nodePPT">nodePPT</a></li>
+<li>本PPT由<a href="http://f2e-server.com">f2e-server</a>对nodePPT封装实时解析生成</li>
+</ul>
+
+</article></section></slide>
+        <!--slide class="slide thank-you-slide segue nobackground">
+            <article class="flexbox vleft auto-fadein">
+                <h2>Q &amp; A</h2>
+                <h3>&lt;Thank You!&gt;</h3>
+            </article>
+        </slide-->
+        <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+              <h2 style="color: white;">Powered By nodePPT v1.2.3</h2>
+            </article>
+          </slide>
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="http://qdemo.sinaapp.com//js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = "http://qdemo.sinaapp.com/";
+
+MixJS.config({
+    baseURL: [ base, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="http://qdemo.sinaapp.com//js/mixjs/lib/event/broadcast.js"></script>
+<script src="http://qdemo.sinaapp.com//js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'zoomin',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('http://qdemo.sinaapp.com//js/highlight/hljs-0.8.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/theme.moon.css&quot;&gt;
+<!--placeholder-->
+</body>
+</html>
