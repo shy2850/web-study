@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <title>网页渲染基本原理 和 HTTP通信 - By 时扬扬</title>
+    <link rel="stylesheet" media="all" href="http://qdemo.sinaapp.com//css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="http://qdemo.sinaapp.com//css/phone.css">
+    <link rel="stylesheet" media="print" href="http://qdemo.sinaapp.com//css/pdf.css">
+    <link rel="stylesheet" href="http://qdemo.sinaapp.com//js/highlight/styles/monokai_sublime.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide" data-transition="glue"><section class="slide-wrapper"><article>
+<h1 id="-">文档渲染基本规则</h1>
+<ol class="rollIn">
+<li>请求完成  </li>
+<li>DOM树构建过程</li>
+<li>从父标签到子标签; 兄弟节点,从上到下</li>
+<li>外链资源加载规则<ul>
+<li>link, js 默认同步下载, js同步执行. </li>
+<li>img 等其他资源异步加载和渲染</li>
+</ul>
+</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide" data-transition="newspaper"><section class="slide-wrapper"><article>
+<h1 id="css-">css 渲染的一些基本特点</h1>
+<ul>
+<li>如何理解UI渲染在整个浏览器行为中消耗的资源相对较高</li>
+<li>思考： 从一个DOM元素的修改, 可能触发的UI绘制过程</li>
+<li>css加载过程中触发的重绘。</li>
+<li>顺序执行选择器出现的先后顺序作为选择权重的一个依据</li>
+<li>不只是性能, 更是体验。</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h1 id="js-">js 加载和执行特点</h1>
+<ol>
+<li>顺序执行</li>
+<li><a href="http://segmentfault.com/q/1010000000640869">defer/async</a></li>
+<li>为什么js需要放在页面的尾部 ？  </li>
+<li>分清楚执行过程和定义过程</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide" data-transition="vertical3d"><section class="slide-wrapper"><article>
+<h1 id="-">参考文章</h1>
+<ul>
+<li><a href="http://www.iefans.net/liulanqi-ruhe-gongzuo-yuanli/">浏览器是如何工作的</a></li>
+</ul>
+<h2 id="-">事实上除去渲染工作, 浏览器还承担着通信员的角色 →</h2>
+
+</article></section></slide>
+<slide class="slide" data-transition="kontext"><section class="slide-wrapper"><article>
+<h1 id="http-">HTTP 基本原理</h1>
+<p><a href="http://i.webfuture.cn/ppt/http.html"><img src="http://img.my.csdn.net/uploads/201202/10/0_1328873949qWNw.gif" alt="7层网络协议"></a></p>
+
+</article></section></slide>
+<slide class="slide" data-transition="circle"><section class="slide-wrapper"><article>
+<h1 id="-">提高网页性能和体验</h1>
+<ol>
+<li>通过css继承提高复用率，减少代码</li>
+<li>尽量少的延迟加载css，以防重绘</li>
+<li>避免加载过程中使用js修改dom造成重绘</li>
+<li>。。。</li>
+</ol>
+
+</article></section></slide>
+        <!--slide class="slide thank-you-slide segue nobackground">
+            <article class="flexbox vleft auto-fadein">
+                <h2>Q &amp; A</h2>
+                <h3>&lt;Thank You!&gt;</h3>
+            </article>
+        </slide-->
+        <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+              <h2 style="color: white;">Powered By nodePPT v1.2.3</h2>
+            </article>
+          </slide>
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="http://qdemo.sinaapp.com//js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = "http://qdemo.sinaapp.com/";
+
+MixJS.config({
+    baseURL: [ base, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="http://qdemo.sinaapp.com//js/mixjs/lib/event/broadcast.js"></script>
+<script src="http://qdemo.sinaapp.com//js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'cards',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('http://qdemo.sinaapp.com//js/highlight/hljs-0.8.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/theme.moon.css&quot;&gt;
+<!--placeholder-->
+</body>
+</html>
