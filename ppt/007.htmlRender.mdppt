@@ -1,0 +1,51 @@
+title: 网页渲染基本原理 和 HTTP通信
+speaker: 时扬扬
+transition: cards
+
+[slide data-transition="glue"]
+
+# 文档渲染基本规则 
+1. 请求完成   {:&.rollIn}
+1. DOM树构建过程
+1. 从父标签到子标签; 兄弟节点,从上到下
+1. 外链资源加载规则
+  - link, js 默认同步下载, js同步执行. 
+  - img 等其他资源异步加载和渲染  
+
+[slide data-transition="newspaper"]
+
+# css 渲染的一些基本特点
+- 如何理解UI渲染在整个浏览器行为中消耗的资源相对较高
+- 思考： 从一个DOM元素的修改, 可能触发的UI绘制过程
+- css加载过程中触发的重绘。
+- 顺序执行选择器出现的先后顺序作为选择权重的一个依据
+- 不只是性能, 更是体验。
+
+[slide]
+
+# js 加载和执行特点
+1. 顺序执行
+1. [defer/async](http://segmentfault.com/q/1010000000640869)
+1. 为什么js需要放在页面的尾部 ？  
+1. 分清楚执行过程和定义过程
+
+[slide data-transition="vertical3d"]
+# 参考文章 
+- [浏览器是如何工作的](http://www.iefans.net/liulanqi-ruhe-gongzuo-yuanli/)
+
+## 事实上除去渲染工作, 浏览器还承担着通信员的角色 →
+
+
+[slide data-transition="kontext"]
+# HTTP 基本原理
+[![7层网络协议](http://img.my.csdn.net/uploads/201202/10/0_1328873949qWNw.gif)](http://i.webfuture.cn/ppt/http.html)
+
+
+[slide data-transition="circle"]
+
+# 提高网页性能和体验
+1. 通过css继承提高复用率，减少代码
+2. 尽量少的延迟加载css，以防重绘
+3. 避免加载过程中使用js修改dom造成重绘
+4. 。。。
+

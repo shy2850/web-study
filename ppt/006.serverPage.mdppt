@@ -1,0 +1,101 @@
+title: Server Page
+speaker: 时扬扬
+transition: move
+theme: moon
+
+[slide]
+
+# Server Page
+- ServerPage 是指在HTML代码中嵌入服务端代码使他看起来像HTML
+- ServerPage 也可以看作是把指定的一种格式的文本转换成HTML
+- 除去基本的HTML功能, 它几乎可以完成所有的服务端语言所支持的所有功能
+
+
+[slide data-transition="glue"]
+
+# nodePPT 渲染原理
+1. 回顾请求头相关信息 
+1. markdown 源代码
+1. 关键代码
+1. 字符串替换、再替换
+1. 服务端响应输出
+1. 回顾响应头相关信息
+
+[slide data-transition="newspaper"]
+
+# serverPage 运行环境
+运行serverPage需要在特定的服务器下
+
+- php 的 Apache
+- jsp 的 Tomcat
+- f2e-server 的serverPage 以及原理实现
+
+[slide]
+
+# serverPage 一般特点
+作为前端, 我们至少需要知道各类serverPage的一些共性的特点
+
+1. 兼容HTML
+2. 特殊服务端脚本标记
+
+[slide data-transition="circle"]
+
+# php
+```
+<!DOCTYPE html>
+<html>
+<body>
+<?php 
+    $colors = array("red","green","blue","yellow"); 
+    foreach ($colors as $value) {
+       echo "$value <br>";
+    }
+?>   
+</body>
+</html>
+```
+
+[slide data-transition="vertical3d"]
+
+# jsp
+```
+<!DOCTYPE html>
+<html>
+<body>
+<% 
+    String[] s = {"red","green","blue","yellow"}; 
+    for (int i = 0; i < s.length; i++) {
+       %><%=s[i]%><%
+    }
+%>   
+</body>
+</html>
+```
+[slide]
+
+# underscore.template
+```
+<!DOCTYPE html>
+<html>
+<body>
+<% 
+    var s = ["red","green","blue","yellow"]; 
+    for (int i = 0; i < s.length; i++) {
+       %><%=s[i]%><%
+    }
+%>   
+</body>
+</html>
+```
+
+[slide]
+#实例： serverPage 处理表单提交
+服务端处理客户端提交数据的基本流程
+<http://www.w3school.com.cn/php/php_forms.asp>
+
+- GET请求数据获取  
+- POST请求数据获取    
+- 根据数据进行响应页面封装  
+- 更改响应头测试  (☆)
+- 文件上传测试  (☆)
+
