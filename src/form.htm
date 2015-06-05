@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>提交结果</title>
+    <style>
+    table{
+        width: 100%;
+    }
+    *{
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+
+<%
+    var post = request.post;
+    if( !post ){
+%>  <h2>请使用POST请求提交数据</h2> <%
+    }else{
+        if( !post.name || !post.name.match(/\S/) ){
+            __p += '<p>'+name需要填写+'</p>';       
+        }else{
+%>
+<table>
+    <tr>
+        <th>姓名</th>
+        <th>密码</th>
+        <th>邮箱</th>
+        <th>年龄</th>
+        <th>出生日期</th>
+    </tr>
+    <tr>
+        <td><%-post.name%></td>
+        <td><%-post.password%></td>
+        <td><%-post.email%></td>
+        <td><%-post.age%></td>
+        <td><%-post.birthday%></td>
+    </tr>
+</table>
+<%
+        }
+    }
+%>
+</body>
+</html>
