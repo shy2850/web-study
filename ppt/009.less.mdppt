@@ -1,0 +1,143 @@
+title: LESS基础
+speaker: 时扬扬
+transition: cards
+
+[slide]
+# 什么是LESS 
+- Less 是一门 CSS 预处理语言，
+- 它扩充了 CSS 语言，增加了诸如变量、混合（mixin）、函数等功能，
+- 让 CSS 更易维护、方便制作主题、扩充。
+- 目前几乎所有的LESS编译器都来自于 Node.js 平台
+
+
+[slide data-transition="glue"]
+
+# 一个简单的例子
+```
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+
+#header {
+  color: @light-blue;
+}
+```
+编译后：
+```
+#header {
+  color: #6c94be;
+}
+```
+
+[slide data-transition="newspaper"]
+
+# 混合（Mixin）
+支持在一组样式表组内引入另一组的定义
+```
+.bordered {
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+
+#menu a {
+  color: #111;
+  .bordered;
+}
+.post a {
+  color: red;
+  .bordered;
+}
+```
+
+[slide]
+
+# 嵌套规则
+LESS支持通过嵌套样式表组实现生成组合选择器样式组
+```
+#header {
+  color: black;
+  .navigation {
+    font-size: 12px;
+  }
+  &.logo {
+    width: 300px;
+  }
+}
+```
+编译后
+```
+#header {
+  color: black;
+}
+#header .navigation {
+  font-size: 12px;
+}
+#header.logo {
+  width: 300px;
+}
+```
+
+[slide data-transition="vertical3d"]
+# 运算
+任何数字、颜色或者变量都可以参与运算。下面是一组案例：
+```
+@base: 5%;
+@filler: @base * 2;
+@other: @base + @filler;
+
+color: #888 / 4;
+background-color: @base-color + #111;
+height: 100% / 2 + @filler;
+```
+
+
+[slide data-transition="circle"]
+# 函数
+```
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+```
+```
+#header {
+  .border-radius(4px);
+}
+.button {
+  .border-radius(6px);
+}
+```
+
+[slide data-transition="kontext"]
+# 循环
+```
+.generate-columns(4);
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+  .column-@{i} {
+    width: (@i * 100% / @n);
+  }
+  .generate-columns(@n, (@i + 1));
+}
+```
+编译后：
+```
+.column-1 {
+  width: 25%;
+}
+.column-2 {
+  width: 50%;
+}
+.column-3 {
+  width: 75%;
+}
+.column-4 {
+  width: 100%;
+}
+```
+
+
+
+[slide ]
+# 参考
+更完整LESS文档请参考：
+<http://less.bootcss.com/features/>
