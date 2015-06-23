@@ -1,0 +1,125 @@
+title: CSS3
+speaker: 时扬扬
+transition: cards
+
+[slide]
+# 什么是 CSS3 
+- css 的一个新版本规范
+- 浏览器对css解析支持的扩展
+
+
+[slide data-transition="glue"]
+
+# 媒体查询
+通过识别设备特征，标记是否引入css或者确定css代码是否生效
+<http://www.w3cplus.com/content/css3-media-queries>
+
+
+
+[slide]
+
+# 背景扩展
+<http://w3school.com.cn/cssref/index.asp#background>
+
+属性名 | 描述
+:-------|:------
+background-clip | 规定背景的绘制区域。  
+background-origin | 规定背景图片的定位区域。  
+background-size | 规定背景图片的尺寸。
+
+
+[slide]
+
+# 边框
+<http://w3school.com.cn/cssref/index.asp#border>
+
+属性名 | 描述
+:-------|:------
+border-image  | 简写属性，设置所有 border-image-* 属性。 
+border-image-outset | 规定边框图像区域超出边框的量。
+border-image-repeat | 图像边框是否应平铺(repeated)、铺满(rounded)或拉伸(stretched)。 
+border-image-slice  | 规定图像边框的向内偏移。 
+border-image-source | 规定用作边框的图片。 
+border-image-width  | 规定图片边框的宽度。 
+border-radius | 简写属性，设置所有四个 border-*-radius 属性。
+box-shadow  | 向方框添加一个或多个阴影。
+
+
+[slide data-transition="vertical3d"]
+# 可伸缩框
+<http://w3school.com.cn/cssref/index.asp#flexbox>
+
+属性名 | 描述
+:-------|:------
+box-align | 规定如何对齐框的子元素。  
+box-direction | 规定框的子元素的显示方向。 
+box-flex  | 规定框的子元素是否可伸缩。 
+box-flex-group  | 将可伸缩元素分配到柔性分组。  
+box-lines | 规定当超出父元素框的空间时，是否换行显示。 
+box-ordinal-group | 规定框的子元素的显示次序。 
+box-orient  | 规定框的子元素是否应水平或垂直排列。  
+box-pack  | 规定水平框中的水平位置或者垂直框中的垂直位置。 
+
+
+[slide data-transition="kontext"]
+# 多列
+<http://w3school.com.cn/cssref/index.asp#multicolumn>
+
+属性名 | 描述
+:-------|:------
+column-count  | 规定元素应该被分隔的列数。 
+column-fill | 规定如何填充列。  
+column-gap  | 规定列之间的间隔。 
+column-rule | 设置所有 column-rule-* 属性的简写属性。 
+column-span | 规定元素应该横跨的列数。  
+column-width  | 规定列的宽度。 
+columns | 规定设置 column-width 和 column-count 的简写属性。
+
+[slide ]
+# transform
+<http://w3school.com.cn/cssref/index.asp#transform>
+
+属性名 | 描述
+:-------|:------
+transform | 向元素应用 2D 或 3D 转换。 
+transform-origin | 允许你改变被转换元素的位置。  
+transform-style | 规定被嵌套元素如何在 3D 空间中显示。  
+perspective | 规定 3D 元素的透视效果。  
+perspective-origin | 规定 3D 元素的底部位置。  
+backface-visibility | 定义元素在不面对屏幕时是否可见
+
+[slide data-transition="newspaper"]
+# 过渡
+<http://w3school.com.cn/cssref/index.asp#transition>
+
+属性名 | 描述
+:-------|:------
+transition  | 简写属性，用于在一个属性中设置四个过渡属性。  
+transition-property | 规定应用过渡的 CSS 属性的名称。  
+transition-duration | 定义过渡效果花费的时间。  
+transition-timing-function  | 规定过渡效果的时间曲线。  
+transition-delay  | 规定过渡效果何时开始。 
+
+[slide ]
+# 动画
+<http://w3school.com.cn/cssref/index.asp#animation>
+
+属性名 | 描述
+:-------|:------
+@keyframes  | 规定动画。 
+animation | 所有动画属性的简写属性，除了animation-play-state 属性。 
+animation-name | 规定 @keyframes 动画的名称。  
+animation-duration  | 规定动画完成一个周期所花费的秒或毫秒。 
+animation-timing-function | 规定动画的速度曲线。  
+animation-delay | 规定动画何时开始。 
+animation-iteration-count | 规定动画被播放的次数。 
+animation-fill-mode | 规定对象动画时间之外的状态。 
+
+[slide]
+# prefixfree
+<http://leaverou.github.io/prefixfree/>
+
+  
+## f2e-server. autoprefix
+<http://f2e-server.com/other.html#autoprefix>
+
