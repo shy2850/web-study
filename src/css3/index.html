@@ -7,9 +7,13 @@
 </head>
 <body>
     <h2> 请在最新版本chrome浏览器下运行查看效果 </h2>
+    <p class="columns-3">
+        以下是一些CSS3的样式测试demo，主要通过less书写和管理完成的。包括边框扩展、背景扩展、2D/3D转换、属性过渡、自定义动画等等。
+        部分css样式定义属于webkit专有的，并没有被收录到W3C中，但是也是应用比较广泛的。
+    </p>
 
     <div class="panel">
-        <h2>按钮样例</h2>
+        <h2>按钮样例-边框扩展</h2>
         <ul>
             <li>
                 <a href="javascript:void(0);" class="button">基本按钮</a>
@@ -26,8 +30,20 @@
             <li class="rounded">
                 <a href="javascript:void(0);" class="button big">大圆角按钮</a>
             </li>
+            <li>
+                <label class="button small">(椭)圆</label>
+                <span class="circle bd-img"></span>
+            </li>
+            <li>
+                <a href="javascript:void(0);" class="button big shadow">阴影按钮</a>
+            </li>
+            <li>
+                <label class="button small">倒影</label>
+                <img src="img/lss.jpg" alt="刘诗诗" class="reflect">
+            </li>
         </ul>
     </div>  
+
     <div class="panel">
         <h2>背景扩展</h2>
         <ul>
@@ -40,10 +56,17 @@
             <li class="rainbow left no-gradient">
                 <a href="javascript:void(0);" class="button big">七彩(无渐变)</a>
             </li>
+            <li class="bg-repeat">
+                <a href="javascript:void(0);" class="button big">重复背景</a>
+            </li>
             <li>
                 <label class="button small">中心扩散</label>
                 <span class="circle rainbow center">
                 </span>
+            </li>
+            <li>
+                <label class="button small">五星红旗</label>
+                <div class="red-hat"></div>
             </li>
             <li>
                 <label class="button small">阴阳</label>
@@ -60,13 +83,56 @@
                 <span class="circle yinyang">
                 </span>
             </li>
+        </ul>
+    </div> 
+
+    <div class="panel transition">
+        <h2>2D/3D变换 和 过渡</h2>
+        <p>hover触发</p>
+        <ul>
+            <li>
+                <a href="javascript:void(0);" class="button big to-color">颜色变换</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" class="button big to-left">位置变换</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" class="button big round to-rotate">旋转</a>
+            </li>
+            <li class="round">
+                <a href="javascript:void(0);" class="button to-big">放大</a>
+            </li>
+            <li class="round">
+                <label class="button small">翻页</label>
+                <a href="javascript:void(0);" class="to-flip">
+                    <img src="img/lss.jpg" alt="刘诗诗">
+                </a>
+            </li>
+        </ul>
+    </div>  
+    
+    <div class="panel">
+        <h2>动画</h2>
+        <ul>
             <li>
                 <label class="button small">旋转阴阳</label>
                 <span class="circle yinyang rotate infinite">
                 </span>
             </li>
+            <li>
+                <label class="button small">图片轮播</label>
+                <div class="slide-holder">
+                    <ul class="slide infinite">
+                        <li><img src="http://2.su.bdimg.com/skin_plus/272.jpg"></li>
+                        <li><img src="http://2.su.bdimg.com/skin_plus/273.jpg"></li>
+                        <li><img src="http://2.su.bdimg.com/skin_plus/274.jpg"></li>
+                        <li><img src="http://2.su.bdimg.com/skin_plus/275.jpg"></li>
+                        <li><img src="http://2.su.bdimg.com/skin_plus/276.jpg"></li>
+                    </ul>
+                </div>
+            </li>
         </ul>
-    </div> 
+    </div>  
 
 </body>
 </html>

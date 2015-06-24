@@ -43,6 +43,22 @@
         );
     }
 };
+/*五星红旗*/
+.red-hat{
+    width: @size * 5 / 3;
+    height: @size;
+    background-color: red;
+    background-image: 
+        url(../img/star.jpg),
+        url(../img/star.jpg),
+        url(../img/star.jpg),
+        url(../img/star.jpg),
+        url(../img/star.jpg);
+    background-repeat: no-repeat;
+    background-size: 20% 20%, 8% 8%, 8% 8%, 8% 8%, 8% 8%;
+    background-position: 10% 10%, 36% 14%, 34% 30%, 28% 42%, 18% 50%;
+}
+/*彩虹效果*/
 .rainbow{
     .rainbow();
     &.left{
@@ -51,6 +67,10 @@
     &.center{
         .radial( center );
     }
+}
+/*重复背景样例*/
+.bg-repeat{
+    background: repeating-linear-gradient(left top, #000 0%, #000 2%, #fff 2%, #fff 4%);
 }
 
 .yinyang{

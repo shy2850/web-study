@@ -1,4 +1,4 @@
-.infinite{
+.infinite, .infinite span{
     animation-iteration-count: infinite;
 }
 
@@ -11,4 +11,41 @@
     animation-name: rotate;
     animation-duration: 2s;
     animation-timing-function: linear;
+}
+
+
+@keyframes slide{
+    0% {top:0px;}
+    10%{top:-163px;}
+    20%{top:-163px;}
+    30%{top:-163px*2;}
+    40%{top:-163px*2;}
+    50%{top:-163px*3;}
+    60%{top:-163px*3;}
+    70%{top:-163px*4;}
+    80%{top:-163px*4;}
+    90%{top:0px;}
+}
+
+.slide-holder{
+	position: relative;
+	width: 260px;
+	height: 163px;
+	overflow: hidden;
+}
+.slide{
+	position: absolute;
+	width: 100%;
+	height: auto;
+	li{
+		width: 260px;
+		height: 163px;
+	}
+	img{
+		max-width: 100%;
+		width: 100%;
+		height: 163px;	
+	}
+    animation-name: slide;
+    animation-duration: 10s;
 }

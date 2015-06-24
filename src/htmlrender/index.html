@@ -4,19 +4,24 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="css/test1.css">
-<script>
-    //alert( document.documentElement.innerHTML );
-</script>
+	<script>
+		// alert( document.documentElement.innerHTML );
+		function aldd() {
+			alert( document.getElementById('aainput') );
+		}
+	</script>
 </head>
 <body>
-    <h2 class="red">
+    <h2 class="red" onclick="aldd()">
         一会儿变一个颜色, chrome 不变
     </h2>
+    <script>document.write('<a href="xx">xx</a>')</script>
 <link rel="stylesheet" href="css/test.css?delay=500">
 <link rel="stylesheet" href="css/test.css?delay=2000&amp;color=orange">
 <link rel="stylesheet" href="css/test.css?delay=3000&amp;color=yellow">
 <link rel="stylesheet" href="css/test.css?delay=4000&amp;color=green">
 <link rel="stylesheet" href="css/test.css?delay=5000&amp;color=blue">
 <link rel="stylesheet" href="css/test.css?delay=6000&amp;color=pink">
+    <input type="text" id="aainput">
 </body>
 </html>

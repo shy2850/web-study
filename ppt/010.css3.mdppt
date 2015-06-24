@@ -36,13 +36,9 @@ background-size | 规定背景图片的尺寸。
 属性名 | 描述
 :-------|:------
 border-image  | 简写属性，设置所有 border-image-* 属性。 
-border-image-outset | 规定边框图像区域超出边框的量。
-border-image-repeat | 图像边框是否应平铺(repeated)、铺满(rounded)或拉伸(stretched)。 
-border-image-slice  | 规定图像边框的向内偏移。 
-border-image-source | 规定用作边框的图片。 
-border-image-width  | 规定图片边框的宽度。 
 border-radius | 简写属性，设置所有四个 border-*-radius 属性。
 box-shadow  | 向方框添加一个或多个阴影。
+box-reflect  | 向方框添加倒影。
 
 
 [slide data-transition="vertical3d"]
@@ -116,10 +112,12 @@ animation-iteration-count | 规定动画被播放的次数。
 animation-fill-mode | 规定对象动画时间之外的状态。 
 
 [slide]
-# prefixfree
-<http://leaverou.github.io/prefixfree/>
+# 其他
 
-  
-## f2e-server. autoprefix
+- css3手册
+<http://www.phpstudy.net/css3/>
+- prefixfree
+<http://leaverou.github.io/prefixfree/>
+- f2e-server. autoprefix
 <http://f2e-server.com/other.html#autoprefix>
 

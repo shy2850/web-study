@@ -15,7 +15,7 @@
 <body>
 
 <%
-    var post = request.post;
+    var post = request.post || request.data; 
     if( !post ){
 %>  <h2>请使用POST请求提交数据</h2> <%
     }else{

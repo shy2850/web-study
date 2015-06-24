@@ -1,0 +1,29 @@
+
+.transition{
+	li, a{
+		transition: all 1.5s;
+	}
+}
+
+.to-color:hover{
+	background-color: red;
+	border-color: red;
+}
+.to-left:hover{
+	transform: translate(100%, 0);
+	// margin-left: 100px;
+}
+.to-rotate:hover{
+	transform: rotate(360deg);
+}
+.to-big:hover{
+	transform: scale(4);
+}
+.to-flip{
+	display: block;
+}
+.to-flip:hover{
+	transform-style: preserve-2d;
+	transform: rotateY(180deg);
+	transform-origin: 0% 100%;
+}

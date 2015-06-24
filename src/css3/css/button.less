@@ -18,6 +18,20 @@
         font-size: .8em;
     }
 }
+/*倒影 非W3C支持*/
+.reflect{
+    -webkit-box-reflect: right 4px -webkit-linear-gradient(left, transparent, rgba(255,255,255,.5) );
+    &:hover{
+        -webkit-box-reflect: right 4px -webkit-linear-gradient(left, transparent, rgba(255,255,255,.8) );
+    }
+}
+/*阴影*/
+.shadow{
+    box-shadow: 3px 3px 8px #333;
+    &:hover{
+        box-shadow: 3px 3px 8px #999;
+    }
+}
 /*小圆角*/
 .round{
     &.button, .button{

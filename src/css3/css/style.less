@@ -8,6 +8,9 @@
     border: 0;
     font-family: Arial, "Microsoft Yahei";
 }
+body{
+    padding-bottom: 100px;
+}
 h2{
     line-height: 50px;
     text-align: center;
@@ -23,9 +26,9 @@ li{
         color: saturate(@color, 20%); 
         font: bold 1.4em/2 Arial, "Microsoft Yahei";   
     }
-    ul{
+    > ul{
         overflow: hidden;
-        li{
+        > li{
             float: left;
             width: 25%;
             text-align: center;
@@ -77,13 +80,24 @@ li{
                 position: absolute;
                 left: 4px;
                 top: 4px;
+                z-index: 1;
             }
         }
     }
+    img{
+        max-width: 90%;
+        max-height: 100%;
+    }
+}
+.columns-3{
+    max-width: 800px;
+    margin: 10px auto;
+    columns: 200px 3; 
 }
 
 @import "shape.less";
 @import "button.less";
 @import "background.less";
+@import "transform.less";
 @import "animate.less";
 
