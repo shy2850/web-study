@@ -1,0 +1,34 @@
+
+.button{
+    display: inline-block;
+    padding: 0 .4em;
+    text-decoration: none;
+    color: #fff;
+    font: normal 1em/1.8 Arial, "Microsoft Yahei";
+    border: 1px solid @color;
+    background-color: @color;
+    &:hover, .hover{
+        border: 1px solid @light;
+        background-color: @light;
+    }
+    &.big{
+        font-size: 1.2em;
+    }
+    &.small{
+        font-size: .8em;
+    }
+}
+/*小圆角*/
+.round{
+    &.button, .button{
+        border-radius: 5px;
+    }
+}
+/*大圆角*/
+.rounded{
+    &.button, .button{
+        border-radius: .9em;
+        padding: 0 .6em;
+    }
+}
+

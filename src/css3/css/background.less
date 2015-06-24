@@ -1,0 +1,92 @@
+
+/*拟物化按钮背景*/
+.skeuomorph{
+    background-image: linear-gradient(lighten(@color, 20%) 0%, @color 50%, darken(@color, 12%) 50%, @color 100%);
+    &:hover{
+        background-image: linear-gradient(lighten(@light, 20%) 0%, @light 50%, darken(@light, 12%) 50%, @light 100%);
+    }
+}
+
+/*彩虹背景*/
+.rainbow(@from:top){
+    /*firefox 不支持left,top. 可以通过旋转实现 http://www.css88.com/tool/css3Preview/Linear-Gradients-moz.html*/
+    background-image: linear-gradient(@from, red, orange, yellow, green, cyan, blue, purple);
+    /*取消渐变效果, 条形旗*/
+    &.no-gradient{
+        @p: percentage(1 / 7);
+        background-image: linear-gradient(@from, 
+            red 0%, red @p, 
+            orange @p, orange @p*2, 
+            yellow @p*2, yellow @p*3, 
+            green @p*3, green @p*4, 
+            cyan @p*4, cyan @p*5, 
+            blue @p*5, blue @p*6, 
+            purple @p*6
+        );
+    }
+};
+/*中心扩散背景*/
+.radial(@from:top){
+    /*firefox 不支持left,top. 可以通过旋转实现 http://www.css88.com/tool/css3Preview/Linear-Gradients-moz.html*/
+    background-image: radial-gradient(@from, red, orange, yellow, green, cyan, blue, purple);
+    /*取消渐变效果, 条形旗*/
+    &.no-gradient{
+        @p: percentage(1 / 7);
+        background-image: radial-gradient(@from, 
+            red 0%, red @p, 
+            orange @p, orange @p*2, 
+            yellow @p*2, yellow @p*3, 
+            green @p*3, green @p*4, 
+            cyan @p*4, cyan @p*5, 
+            blue @p*5, blue @p*6, 
+            purple @p*6
+        );
+    }
+};
+.rainbow{
+    .rainbow();
+    &.left{
+        .rainbow( left );
+    }
+    &.center{
+        .radial( center );
+    }
+}
+
+.yinyang{
+    @t: transparent;
+    border: 1px solid #000;
+    background-image: 
+        radial-gradient(center, #fff 0%, #fff 100% / sqrt(2), @t 100% / sqrt(2), @t 100% ),
+        radial-gradient(center, #000 0%, #000 100% / sqrt(2), @t 100% / sqrt(2), @t 100% ),
+        radial-gradient(right center, #fff 0%, #fff 100% / sqrt(2), @t 100% / sqrt(2), @t 100% ),
+        radial-gradient(left center, #000 0%, #000 100% / sqrt(2), @t 100% / sqrt(2), @t 100% ),
+        radial-gradient(left center, #fff 0%, #fff 100% / sqrt(2), @t 100% / sqrt(2), @t 100% ),
+        radial-gradient(right center, #000 0%, #000 100% / sqrt(2), @t 100% / sqrt(2), @t 100% );
+    background-repeat: no-repeat;
+    background-size: 8% 8%, 8% 8%, 25% 50%, 25% 50%, 50% 100%, 50% 100%;
+    background-position: 50% 75%, 50% 25%, 37.5% top, 62.5% bottom, right top, left top;
+}
+.yinyang-1{
+    @t: transparent;
+    border: 1px solid #000;
+    background-image: 
+        radial-gradient(left center, #fff 0%, #fff 100% / sqrt(2), @t 100% / sqrt(2), @t 100% ),
+        radial-gradient(right center, #000 0%, #000 100% / sqrt(2), @t 100% / sqrt(2), @t 100% );
+    background-repeat: no-repeat no-repeat;
+    background-size: 50% 100%, 50% 100%;
+    background-position: right top, left top;
+}
+.yinyang-2{
+    @t: transparent;
+    border: 1px solid #000;
+    background-image: 
+        radial-gradient(right center, #fff 0%, #fff 100% / sqrt(2), @t 100% / sqrt(2), @t 100% ),
+        radial-gradient(left center, #000 0%, #000 100% / sqrt(2), @t 100% / sqrt(2), @t 100% ),
+        radial-gradient(left center, #fff 0%, #fff 100% / sqrt(2), @t 100% / sqrt(2), @t 100% ),
+        radial-gradient(right center, #000 0%, #000 100% / sqrt(2), @t 100% / sqrt(2), @t 100% );
+    background-repeat: no-repeat no-repeat;
+    background-size: 25% 50%, 25% 50%, 50% 100%, 50% 100%;
+    background-position: 37.5% top, 62.5% bottom, right top, left top;
+}
+

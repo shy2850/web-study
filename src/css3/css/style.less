@@ -1,0 +1,89 @@
+@color: #2cac93;
+@light: lighten(@color, 10%);
+@size: 150px;
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: Arial, "Microsoft Yahei";
+}
+h2{
+    line-height: 50px;
+    text-align: center;
+}
+li{
+    list-style: none;
+}
+.panel{
+    width: 90%;
+    margin: 4px auto;
+    h2{
+        text-align: left;
+        color: saturate(@color, 20%); 
+        font: bold 1.4em/2 Arial, "Microsoft Yahei";   
+    }
+    ul{
+        overflow: hidden;
+        li{
+            float: left;
+            width: 25%;
+            text-align: center;
+            padding: 10px 0;
+            height: @size;
+            
+            /*媒体查询分栏*/
+            @media screen and (max-width: 1200px) {
+                width: 33.33%;
+            }
+            @media screen and (max-width: 800px) {
+                width: 50%;  
+            }
+            @media screen and (max-width: 600px) {
+                width: 100%;  
+            }
+            
+
+            /* Firefox */
+            display:-moz-box;
+            -moz-box-pack:center;
+            -moz-box-align:center;
+
+            /* Safari、Opera 以及 Chrome */
+            display:-webkit-box;
+            -webkit-box-pack:center;
+            -webkit-box-align:center;
+
+            /* W3C */
+            display:box;
+            box-pack:center;
+            box-align:center;
+            
+            &:nth-child(4n+1){
+                background-color: lighten(@color, 55%);
+            }
+            &:nth-child(4n+2){
+                background-color: lighten(@color, 50%);
+            }
+            &:nth-child(4n+3){
+                background-color: lighten(@color, 45%);
+            }
+            &:nth-child(4n){
+                background-color: lighten(@color, 40%);
+            }
+
+            position: relative;
+            label{
+                position: absolute;
+                left: 4px;
+                top: 4px;
+            }
+        }
+    }
+}
+
+@import "shape.less";
+@import "button.less";
+@import "background.less";
+@import "animate.less";
+

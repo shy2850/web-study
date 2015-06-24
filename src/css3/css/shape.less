@@ -1,0 +1,12 @@
+.square{
+    display: inline-block;
+    background-color: @color;
+    width: @size;
+    height: @size;
+    line-height: @size !important;
+}
+.circle{
+    .square;
+    border-radius: 50%;
+}
+
