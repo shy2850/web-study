@@ -1,19 +1,99 @@
-.infinite, .infinite span{
+.infinite{
     animation-iteration-count: infinite;
 }
 
+.anim(@name,@duration,@timing:esing){
+    animation-name: @name;
+    animation-duration: @duration;
+    animation-timing-function: @timing;
+}
+
+/*进度条*/
+@keyframes process{
+    from{width: 0%;}
+    to{width: 100%;}
+}
+.process-holder{
+    width: 90%;
+    border: 1px solid @color;
+    height: 10px;
+    .process{
+        display: block;
+        height: 10px;
+        background-color: @color;
+        .anim(process,5s);
+    }
+}
+
+/*呼吸*/
+@keyframes breath {
+    0% { transform: scale(1); }
+    50% { transform:scale(.8); }
+}
+.breath{
+    .anim(breath,2s);
+}
+
+/*旋转*/
 @keyframes rotate{
-    0%{transform:rotate(0deg);}
-    100%{transform:rotate(360deg);}
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
 }
-
 .rotate{
-    animation-name: rotate;
-    animation-duration: 2s;
-    animation-timing-function: linear;
+    .anim(rotate,2s,linear);
 }
 
+/*loading*/
+@keyframes loading{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
 
+.loading{
+    .circle;
+    .anim(loading,1s,linear);
+    background-color: transparent;
+    >span{
+        position: absolute;
+        width: 20%;
+        height: 100%;
+        margin-left: -10%;
+        &:nth-child(8n+1){
+            background-image: linear-gradient(lighten(@color, 40%) 10%, transparent 10%, transparent 90%, lighten(@color, 40%) 90%);
+            transform: rotate(10deg);
+        }
+        &:nth-child(8n+2){
+            background-image: linear-gradient(lighten(@color, 35%) 10%, transparent 10%, transparent 90%, lighten(@color, 35%) 90%);
+            transform: rotate(20deg);
+        }
+        &:nth-child(8n+3){
+            background-image: linear-gradient(lighten(@color, 30%) 10%, transparent 10%, transparent 90%, lighten(@color, 30%) 90%);
+            transform: rotate(30deg);
+        }
+        &:nth-child(8n+4){
+            background-image: linear-gradient(lighten(@color, 25%) 10%, transparent 10%, transparent 90%, lighten(@color, 25%) 90%);
+            transform: rotate(40deg);
+        }
+        &:nth-child(8n+5){
+            background-image: linear-gradient(lighten(@color, 20%) 10%, transparent 10%, transparent 90%, lighten(@color, 20%) 90%);
+            transform: rotate(50deg);
+        }
+        &:nth-child(8n+6){
+            background-image: linear-gradient(lighten(@color, 15%) 10%, transparent 10%, transparent 90%, lighten(@color, 15%) 90%);
+            transform: rotate(60deg);
+        }
+        &:nth-child(8n+7){
+            background-image: linear-gradient(lighten(@color, 10%) 10%, transparent 10%, transparent 90%, lighten(@color, 10%) 90%);
+            transform: rotate(70deg);
+        }
+        &:nth-child(8n){
+            background-image: linear-gradient(lighten(@color, 5%) 10%, transparent 10%, transparent 90%, lighten(@color, 5%) 90%);
+            transform: rotate(80deg);
+        }
+    }
+}
+
+/*轮播*/
 @keyframes slide{
     0% {top:0px;}
     10%{top:-163px;}
@@ -46,6 +126,5 @@
 		width: 100%;
 		height: 163px;	
 	}
-    animation-name: slide;
-    animation-duration: 10s;
+    .anim(slide,10s);
 }

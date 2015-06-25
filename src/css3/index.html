@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>CSS3 Demo</title>
     <link rel="stylesheet" href="css/style.less">
 </head>
@@ -115,8 +117,26 @@
         <h2>动画</h2>
         <ul>
             <li>
+                <label class="button small">进度条</label>
+                <div class="process-holder">
+                    <span class="process infinite"></span>
+                </div>
+            </li>
+            <li>
+                <label class="button small">呼吸</label>
+                <span class="circle breath infinite">
+                </span>
+            </li>
+            <li>
                 <label class="button small">旋转阴阳</label>
                 <span class="circle yinyang rotate infinite">
+                </span>
+            </li>
+            <li>
+                <label class="button small">旋转+呼吸</label>
+                <span class="circle breath infinite">
+                    <span class="circle yinyang rotate infinite">
+                    </span>
                 </span>
             </li>
             <li>
@@ -129,6 +149,19 @@
                         <li><img src="http://2.su.bdimg.com/skin_plus/275.jpg"></li>
                         <li><img src="http://2.su.bdimg.com/skin_plus/276.jpg"></li>
                     </ul>
+                </div>
+            </li>
+            <li>
+                <label class="button small">Loading</label>
+                <div class="loading infinite">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </li>
         </ul>
