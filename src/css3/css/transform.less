@@ -19,6 +19,47 @@
 .to-big:hover{
 	transform: scale(4);
 }
+.to-menu{
+	@w: 60%;
+	@h: 6%;
+	@w2: @w / 2;
+	@h2: @h / 2;
+	position: relative;
+	width: 60px;
+	height: 60px;
+	display: inline-block;
+	background-color: lighten(@color, 30%);
+	> span{
+		position: absolute;
+		width: @w;
+		height: @h;
+		left: 50% - @w2;
+		background: @color;
+		transition: all 1s;
+		&:nth-child(1){top:30% - @h2;}
+		&:nth-child(2){top:50% - @h2;}
+		&:nth-child(3){top:70% - @h2;}
+	}
+	&:hover{
+		border-radius: 50%;
+		background: lighten(red, 40%);
+		> span{
+			background: lighten(red, 20%);
+			&:nth-child(1){
+				top:50% - @h2;
+				transform: rotate(-135deg);
+			}
+			&:nth-child(2){
+				opacity: 0;
+			}
+			&:nth-child(3){
+				top:50% - @h2;
+				transform: rotate(495deg);
+			}
+		}
+	}
+}
+
 .to-flip{
 	display: block;
 }
