@@ -16,6 +16,7 @@
                         __p += '<a href="ppt/'+(request.data._build_ ? file : filename) +'">'+file+'</a>';
                     }
                 });
+                response.writeHead(200,{"Content-Type":"text/html"});
                 response.end(  __p );
             }
         });
