@@ -25,5 +25,5 @@
 	__p = __p.replace(/<!--!([\s\S\n\r]*?)!!-->/,function(match, str) {
 		return jade.render( str );
 	});
-	response.writeHead(200, {"Content-Type": "text/html","middleware-type":"html"}); 
+	response.writeHead(200, {"Content-Type": "text/html","middleware-type":"html","Content-Encoding": response.gzip ? "gzip" : "utf-8"}); 
 %></script>
