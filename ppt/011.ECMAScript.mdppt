@@ -1,0 +1,113 @@
+title: ECMAScript
+speaker: 时扬扬
+transition: cards
+
+[slide]
+# js相关流行技术 <http://w3school.com.cn/b.asp>
+- javascript
+- HTML-DOM
+- Browser-BOM
+- jQuery
+- ajax / json
+- E4X
+
+[slide]
+# 运行环境和方式
+- 浏览器端
+	* HTML引入 (浏览器插件引入☆)
+	* 控制台运行
+- node.js端
+	* 控制台运行 (几乎同浏览器)
+	* node 命令运行.js文件
+
+[slide data-transition="glue"]
+
+# js是一门编程语言
+- 值与变量
+- 表达式和运算(符)
+- 语句( 条件、循环、分支等 )
+- 注释 和异常
+- 函数/方法
+
+
+[slide]
+
+# [值](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Grammar_and_types)
+<http://w3school.com.cn/js/pro_js_primitivetypes.asp>
+- 数值 和 进制
+- Boolean
+- 字符串
+- 方法
+- 数组 和 对象字面量
+- 空值 (null, undefined) and other。。。
+
+
+[slide]
+
+# 变量
+<http://w3school.com.cn/js/pro_js_variables.aspborder>
+
+- var 声明
+- 变量名基本规则
+	- 大小写敏感
+	- 非关键字和字面量
+- 变量赋值
+	- 字面量赋值
+	- 表达式赋值
+- 作用域 (☆)
+	- 作用域内不重复声明
+	- hosting
+
+
+[slide data-transition="vertical3d"]
+# [表达式和运算符](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Expressions_and_Operators)
+
+- 赋值运算符
+- 比较运算符
+- 算术运算符
+- 位运算符
+- 逻辑运算符
+- 字符串运算符
+- 特殊运算符 
+
+
+[slide data-transition="kontext"]
+# [流程控制和语句](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Control_flow_and_error_handling)
+
+- 条件判断语句（Conditional Statements）
+- 条件分支语句（Switch Statement）
+- 条件循环语句（Loop Statement）
+	- for
+	- do...while
+	- while
+	- for..in
+
+
+[slide ]
+# [注释和异常](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Control_flow_and_error_handling)
+- 注释
+	- 块注释
+	- 行注释
+- 异常
+
+
+[slide data-transition="newspaper"]
+# [函数/方法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Functions)
+函数是搭建JavaScript语言大厦的基本构件之一。一个函数本身就是一段JavaScript程序——包含用于执行某一任务或计算的一系列语句。要使用某一个函数，你必需在想要调用这个函数的执行域的某处定义它
+
+- 方法的定义
+- 方法的调用 
+- 递归
+- 作用域和闭包(☆)
+- ECMAScript内置全局方法
+
+
+[slide ]
+# 实例与练习
+
+1. 构建方法 max(x, y) 传入x,y，方法返回数值较大的数字
+2. 使用for循环实现 9×9 乘法表的格式化输出
+3. 构建方法 fib(n) [实现斐波那契数列](http://baike.baidu.com/view/816.htm) 
+4. 实现一个冒泡排序算法 sort(arr) 传入一个全部由数字组成的数组，执行结束后原数组值从小到大排列
+5. 构建方法 isPrime(n) 传入一个正整数, 返回如果是一个素数返回 true, 否则返回 false
+6. 使用isPrime方法 完成以下方法 sumPrimes(n) 返回 n 以内所有素数的和
