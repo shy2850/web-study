@@ -1,0 +1,114 @@
+title: ECMAScript内置对象
+speaker: 时扬扬
+transition: cards
+
+[slide]
+# 编程语言可用库
+
+- 各类编程语言，在基础语法之上，通常会设计很多方便的内置方法库或者环境接口
+- 例如：
+    - 用于控制台输出的 console 对象
+    - 正统编程语言对硬盘的I/O操作，网络相关的操作等
+    - 还有一些方法直接用于特殊场景展示，例如网页里的alert,confirm,prompt
+    - 特定数据类型对象的一些需要记忆的方法和属性等
+
+[slide]
+# javascript的【库】(内置对象和方法)
+- 顶层函数
+- 顶层工具对象 Math
+- 顶层原型对象 
+    - Object
+    - String
+    - RegExp
+    - Number
+    - Boolean
+    - Function
+    - Array
+    - Date
+
+
+[slide data-transition="glue"]
+
+# 顶层函数
+<http://w3school.com.cn/jsref/jsref_obj_global.asp>
+- parseInt/parseFloat/Number/String
+- escape/unescape/encodeURI/decodeURI/encodeURIComponent/decodeURIComponent
+- isNaN / isFinite
+- eval
+
+[slide]
+
+# Object 
+<http://w3school.com.cn/js/pro_js_referencetypes.asp>
+- constructor
+- instanceof
+- prototype
+- typeof
+- ({}).toString.call
+
+
+[slide]
+
+# String 
+<http://w3school.com.cn/jsref/jsref_obj_string.asp>
+- indexOf/lastIndexOf
+- charAt/charCodeAt
+- slice/substring/substr
+- toLowerCase/toUpperCase
+- match/search/replace/split  RegExp
+
+
+[slide data-transition="vertical3d"]
+# RegExp
+<http://w3school.com.cn/jsref/jsref_obj_regexp.asp>
+
+- 修饰符
+- 元字符匹配
+- 方括弧枚举和区间
+- 量词
+- 分组
+- 回溯判断(☆)
+- test/exec
+- match/search/replace/split  RegExp
+
+[slide]
+# Date
+<http://w3school.com.cn/jsref/jsref_obj_date.asp>
+
+- getFullYear/getMonth+1/getDate/getHours/getMinutes/getSeconds
+- 实例： 创建日期格式化输出方法
+
+[slide data-transition="kontext"]
+# Math&Number 
+<http://w3school.com.cn/jsref/jsref_obj_math.asp>
+<http://w3school.com.cn/jsref/jsref_obj_number.asp>
+
+- Number.prototype.toFixed
+- Math
+
+
+[slide ]
+# Function 
+<http://w3school.com.cn/js/pro_js_functions_function_object.asp>
+
+- new Function / eval
+- arguments / callee
+- apply / call
+
+
+[slide data-transition="newspaper"]
+# Array 
+<http://w3school.com.cn/jsref/jsref_obj_array.asp>
+
+- 类 String 方法
+- 类数组对象
+- Array in ES5
+
+[slide ]
+# 实例与练习
+
+1. 日期格式化与字符串逆向构建
+2. 大数相加算法实现
+3. 数字千分位效果
+4. 人民币读数程序
+5. 尝试构建 JSON.parse && JSON.stringify (☆)
