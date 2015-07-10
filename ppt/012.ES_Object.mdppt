@@ -110,5 +110,6 @@ transition: cards
 1. 日期格式化与字符串逆向构建
 2. 大数相加算法实现
 3. 数字千分位效果
-4. 人民币读数程序
-5. 尝试构建 JSON.parse && JSON.stringify (☆)
+4. 字符全排列算法 <http://runjs.cn/detail/phvjixef>
+5. 人民币读数程序
+6. 尝试构建 JSON.parse && JSON.stringify (☆)
