@@ -1,0 +1,84 @@
+title: DOM&Event
+speaker: 时扬扬
+transition: cards
+
+[slide]
+# 什么是DOM
+
+- DOM( Document Object Model )文档对象模型， 是将浏览器对HTML文档的解析结果映射到 js运行环境中，使得可以通过操作js对象实现对HTML元素的结构、展现、事件，等功能的修改。
+
+
+[slide]
+# Document 
+<http://w3school.com.cn/jsref/dom_obj_document.asp>
+
+- 每个载入浏览器的 HTML 文档都会成为 Document 对象。
+- Document 对象使我们可以从脚本中对 HTML 页面中的所有元素进行访问。
+- 实例： title动态展示
+- 实例： cookie操作
+
+
+
+[slide data-transition="glue"]
+
+# Element
+<http://w3school.com.cn/jsref/dom_obj_all.asp>
+- 在 HTML DOM 中，Element 对象表示 HTML 元素。
+Element 对象可以拥有类型为元素节点、文本节点、注释节点的子节点。
+
+- 元素创建
+- 元素查找
+- 元素修改 
+- 显式元素可见属性和样式
+
+[slide]
+# 元素创建
+
+- createElement
+- createDocumentFragment
+- table 相关
+- 奇淫巧计
+
+[slide data-transition="newspaper"]
+# 元素查找 【 后代，父子，关联 】
+
+- 工具： 兼容的获取兄弟元素
+- 工具： 兼容简单css选择器的dom元素选择器
+
+
+[slide]
+
+# 元素修改 【属性，样式，结构】
+- 属性和自定义属性的设置获取
+- 样式的设置与获取
+- 工具： classList的兼容方法实现
+- 工具： 操作style样式表的兼容性方法实现
+- 工具： 元素的删除、前置添加、前置插入、后置插入等操作封装
+
+
+[slide data-transition="vertical3d"]
+# 显式元素可见属性和样式
+![显式元素可见属性和样式](http://sandbox.runjs.cn/uploads/rs/296/iehoqtsc/2010120215445612.gif)
+
+[slide]
+# 相关实例
+
+- 回到顶部（动态）
+- IE6的兼容性fixed实现
+
+[slide data-transition="kontext"]
+# Event 【事件】
+<http://w3school.com.cn/jsref/dom_obj_event.asp>
+
+- 事件的冒泡与捕获
+- 工具：兼容性事件绑定的封装
+- 工具：事件代理封装
+
+
+[slide ]
+# DOM综合练习 
+
+- 练习： [星级评分☆☆☆☆☆](http://runjs.cn/detail/evsimdcq)
+- 练习： [模拟下拉框](http://runjs.cn/detail/mu2jqeim)
+- 作业1： [windows计算器](http://runjs.cn/detail/0wgck9pa)
+- 作业2：基于定位的兼容性tooltip实现
