@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击显示隐藏</title>
+<style>
+    ol li{
+        height: 150px;
+        list-style: inside decimal;
+    }
+    li img{
+        position: absolute;
+        width: 102px;
+        height: 148px;
+    }
+    .hidden{
+        display: none;
+    }
+    #img3{
+        -webkit-transition: opacity ease-out .5s;
+         -o-transition: opacity ease-out .5s;
+         transition: opacity ease-out .5s; 
+    }
+    .opacity{
+        opacity: 0;
+        filter: alpha(opacity=0) \9;
+    }
+    #img6{
+        -webkit-transition: all ease-out 1s;
+         -o-transition: all ease-out 1s;
+         transition: all ease-out 1s; 
+    }
+    .out{
+        -webkit-transform: scale(0) rotate(360deg);
+        -moz-transform: scale(0) rotate(360deg);
+        -ms-transform: scale(0) rotate(360deg);
+        -o-transform: scale(0) rotate(360deg);
+        transform: scale(0) rotate(360deg);
+        opacity: 0;
+        filter: alpha(opacity=0) \9;
+    }
+</style>
+</head>
+<body>
+    <ol>
+        <li>
+            <label>行内样式修改：</label>
+            <button id="button1">点击</button>
+            <img src="../css3/img/lss.jpg" alt="" id="img1">
+        </li>
+        <li>
+            <label>class外联样式：</label>
+            <button id="button2">点击</button>
+            <img src="../css3/img/lss.jpg" alt="" id="img2">
+        </li>
+        <li>
+            <label>CSS3透明度动画渐隐渐现：</label>
+            <button id="button3">点击</button>
+            <img src="../css3/img/lss.jpg" alt="" id="img3">
+        </li>
+        <li>
+            <label>js延时动画渐隐渐现：</label>
+            <button id="button4">点击</button>
+            <img src="../css3/img/lss.jpg" alt="" id="img4">
+        </li>
+        <li>
+            <label>js大小修改slideUp/Down</label>
+            <button id="button5">点击</button>
+            <img src="../css3/img/lss.jpg" alt="" id="img5">
+        </li>
+        <li>
+            <label>其他可参考的css3效果：</label>
+            <button id="button6">点击</button>
+            <img src="../css3/img/lss.jpg" alt="" id="img6">
+        </li>
+    </ol>
+
+<script>
+    var 
+        b1 = document.getElementById('button1'),
+        b2 = document.getElementById('button2'),
+        b3 = document.getElementById('button3'),
+        b4 = document.getElementById('button4'),
+        b5 = document.getElementById('button5'),
+        b6 = document.getElementById('button6'),
+        img0 = document.getElementById('img1'),
+        img2 = document.getElementById('img2'),
+        img3 = document.getElementById('img3'),
+        img4 = document.getElementById('img4'),
+        img5 = document.getElementById('img5'),
+        img6 = document.getElementById('img6');
+
+
+    // el.style.display: 元素style属性中的display属性 获取和设置
+    // el.style.cssText: 元素的完整style属性 获取和设置
+    b1.onclick = function(){
+        if( img0.style.display = "none" ){
+        // if( img0.style.cssText ){
+        //     img0.style.cssText = "";
+            img0.style.display = "inline-block";
+        }else{
+            img0.style.display = "none";
+            // img0.style.cssText = "display:none;";
+        }
+    };
+
+    // el.className: 元素的class属性 多个class属性之间用空格分隔
+    // el.classList: contains() add() remove()
+    b2.onclick = function(){
+        // if( img2.classList ){
+        //     if( img2.classList.contains("hidden") ){
+        //         img2.classList.remove("hidden");
+        //     }else{
+        //         img2.classList.add("hidden");
+        //     }
+        // }else{
+            if( img2.className == "hidden" ){
+                img2.className = "";
+            }else{
+                img2.className = "hidden";
+            }
+
+        //     if( img2.className.indexOf("hidden") != -1 ){
+        //         img2.className = img2.className.replace("hidden", "");
+        //     }else{
+        //         img2.className = img2.className + " hidden";
+        //     }
+
+        //     var classList = img2.className.split(/\s+/), 
+        //         index = -1;
+        //     for (var i = 0; i < classList.length; i++) {
+        //         if( classList[i] == "hidden" ){
+        //             index = i;
+        //             classList[i] = "";
+        //         }
+        //     };
+        //     if( index == -1 ){
+        //         img2.className = classList.join(" ") + " hidden";
+        //     }
+
+        // }
+    };
+
+    // 同上： 完全css实现的动画不兼容 IE10- 浏览器
+    b3.onclick = function(){
+        if( img3.className == "opacity" ){
+            img3.className = "";
+        }else{
+            img3.className = "opacity";
+        }
+    };
+
+
+    // 需要创建js动画过程 浏览器全兼容
+    var 
+        isRun,  // 是不是正在动画中
+        interval, // 轮询
+        opacity = 100, //透明度
+        animateRate = 5,
+        run = function(){
+            clearInterval( interval );
+            isRun = true;
+            interval = setInterval(function(){
+                opacity = opacity + animateRate;
+                img4.style.cssText = 'opacity: '+opacity/100+';' 
+                    +'filter: alpha(opacity='+opacity+')';
+                if( opacity >= 100 || opacity <= 0 ){
+                    clearInterval( interval );
+                    isRun = false;
+                }
+            },20);
+        };
+    b4.onclick = function(){
+        if( !isRun ){
+            animateRate = -animateRate;
+            run();
+        }
+    };
+
+
+    // 因为跟b4 类似, 参数重名, 故使用匿名方法定义执行
+    (function(){
+        var 
+            isRun,  // 是不是正在动画中
+            interval, // 轮询
+            height = 148, //透明度
+            animateRate = 4,
+            run = function(){
+                clearInterval( interval );
+                isRun = true;
+                interval = setInterval(function(){
+                    height = height + animateRate;
+                    img5.style.cssText = 'height:'+height+'px';
+                    if( height >= 148 || height <= 0 ){
+                        clearInterval( interval );
+                        isRun = false;
+                    }
+                },20);
+            };
+        b5.onclick = function(){
+            if( !isRun ){
+                animateRate = -animateRate;
+                run();
+            }
+        };
+    })();
+
+
+    b6.onclick = function(){
+        if( img6.className == "out" ){
+            img6.className = "";
+        }else{
+            img6.className = "out";
+        }
+    };
+
+
+</script>
+</body>
+</html>

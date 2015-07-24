@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉菜单</title>
+
+<style>
+    a{
+        text-decoration: none;
+        color: #666;
+    }
+    a:hover{
+        color: #f60;
+    }
+    li{
+        list-style: none;
+    }
+    div,ul,li{
+        margin: 0;
+        padding: 0;
+    }
+    #menu{
+        font: normal 14px/30px "Simsun";
+        overflow: hidden;
+        height: 30px;
+        width: 60px;
+        padding: 0 20px 0 10px;
+        border: 1px solid #d2d2d2;
+        margin: 20px auto;
+    }
+    #menu:hover{
+        height: auto;
+    }
+    #menu .inner{
+        position: relative;
+    }
+    #menu .inner:after{
+        content: ">";
+        position: absolute;
+        margin-left: .2em;
+        -webkit-transition: transform ease .5s;
+        -o-transition: transform ease .5s;
+        transition: transform ease .5s;
+
+        -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+    #menu:hover .inner:after{
+        -webkit-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+</style>
+</head>
+<body>
+    
+    <div id="menu">
+        <a href="#" class="inner">我的订单</a>
+        <ul class="more">
+            <li><a href="#">待支付</a></li>
+            <li><a href="#">待收货</a></li>
+            <li><a href="#">待评价</a></li>
+            <li><a href="#">修改订单</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字计数器</title>
+
+<style>
+    .counter-holder{
+        width: 300px;
+        position: relative;
+    }
+    .counter-holder textarea{
+        display: block;
+        width: 300px;
+        height: 200px;
+        resize: none;
+    }
+    .counter-holder .num-show{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+</style>
+</head>
+<body>
+    <div class="counter-holder">
+        <textarea name="word" id="word"></textarea>
+        <p class="num-show" id="num-show">还可以输入 <em>100</em> 个字</p>
+    </div>
+<script>
+    var word = document.getElementById('word');
+    var show = document.getElementById('num-show');
+
+    word.onkeydown = word.onkeyup = function(){
+        var length = 100 - this.value.length;
+        if( length < 0 ){
+            this.value = this.value.substring(0,100);
+            length = 0;
+        }
+        show.innerHTML = '还可以输入 <em>' +length+ '</em> 个字';
+    };
+</script>
+</body>
+</html>
