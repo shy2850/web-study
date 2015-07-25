@@ -27,11 +27,25 @@
         <textarea name="word" id="word"></textarea>
         <p class="num-show" id="num-show">还可以输入 <em>100</em> 个字</p>
     </div>
+    <p><span id="test">我是可以修改的</span><input id="test1" type="text" value="我是可以修改的" style="border:0;height: 30px;display:none;"></p>
 <script>
+    var test = document.getElementById('test');
+    var test1 = document.getElementById('test1');
+
+    test.onclick = function(){
+        this.style.display = "none";
+        test1.style.display = "inline-block";
+    };
+    test1.onblur = function(){
+        this.style.display = "none";
+        test.innerHTML = this.value;
+        test.style.display = "inline-block";
+    };
+
     var word = document.getElementById('word');
     var show = document.getElementById('num-show');
 
-    word.onkeydown = word.onkeyup = function(){
+    word.onkeydown = word.onkeyup = word.onfocus = word.onblur = function(){
         var length = 100 - this.value.length;
         if( length < 0 ){
             this.value = this.value.substring(0,100);

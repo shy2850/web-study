@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时钟效果</title>
+
+<style>
+	#clock{
+		width: 300px;
+		height: 300px;
+		border: 2px solid #aaa;
+		border-radius: 50%;
+		position: relative;
+	}
+	.hours{
+		position: absolute;
+		width: 30px;
+		height: 30px;
+		text-align: center;
+		left: 50%;
+		top: 50%;
+		margin: -15px 0 0 -15px;
+		font: bold 20px/30px "Arial";
+	}
+	.top{
+		-webkit-transform: translateY(-120px);
+		-ms-transform: translateY(-120px);
+		-o-transform: translateY(-120px);
+		transform: translateY(-120px);
+	}
+	.right{
+		-webkit-transform: translateX(120px);
+		-ms-transform: translateX(120px);
+		-o-transform: translateX(120px);
+		transform: translateX(120px);
+	}
+	.bottom{
+		-webkit-transform: translateY(120px);
+		-ms-transform: translateY(120px);
+		-o-transform: translateY(120px);
+		transform: translateY(120px);
+	}
+	.left{
+		-webkit-transform: translateX(-120px);
+		-ms-transform: translateX(-120px);
+		-o-transform: translateX(-120px);
+		transform: translateX(-120px);
+	}
+	.arrow{
+		width: 4px;
+		height: 80px;
+		background-color: #000;
+		position: absolute;
+		left: 50%;
+		margin-left: -2px;
+		top: 70px;
+		border-radius: 6px;
+		transform: rotate(295deg);
+		transform-origin: center 76px;
+	}
+	.hour{
+		width: 8px;
+		margin-left: -4px;
+		height: 40px;
+		top: 110px;
+		transform: rotate(90deg);
+		transform-origin: center 36px;
+	}
+	.second{
+		width: 1px;
+		height: 100px;
+		top: 50px;
+		margin-left: 0px;
+		transform: rotate(180deg);
+		transform-origin: center 96px;
+	}
+</style>
+</head>
+<body>
+	
+	<div id="clock">
+		<i class="hours top">12</i>
+		<i class="hours right">3</i>
+		<i class="hours bottom">6</i>
+		<i class="hours left">9</i>
+
+		<a href="#" id="hour" class="arrow hour"></a>
+		<a href="#" id="minute" class="arrow minute"></a>
+		<a href="#" id="second" class="arrow second"></a>
+	</div>
+
+<script>
+var hour = document.getElementById('hour');
+var minute = document.getElementById('minute');
+var second = document.getElementById('second');
+
+setInterval(function(){
+	var date = new Date(),
+		// y = date.getFullYear(),
+		// M = date.getMonth(),
+		// d = date.getDate(),
+		h = date.getHours(),
+		m = date.getMinutes(),
+		s = date.getSeconds(),
+		ss = date.getMilliseconds();
+		//date.getTime(); // 4689231400238
+
+	var deg_s = 360 * ( (s+ss/1000)/60 ),
+		deg_m = 360 * ( (m+s/60)/60 ),
+		deg_h = 360 * ( (h+m/60)/12 );
+
+		hour.style.cssText = 'transform: rotate('+deg_h+'deg);';
+		minute.style.cssText = 'transform: rotate('+deg_m+'deg);';
+		second.style.cssText = 'transform: rotate('+deg_s+'deg);';
+
+},20);
+</script>
+</body>
+</html>

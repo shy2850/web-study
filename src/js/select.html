@@ -42,6 +42,8 @@
     //     city.innerHTML = options;
     // };
     province.onchange = function(){
+        city.innerHTML = "";
+        
         var cities = data[this.value];
 
         var fragment = document.createDocumentFragment();

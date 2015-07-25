@@ -23,7 +23,7 @@
     }
     .opacity{
         opacity: 0;
-        filter: alpha(opacity=0) \9;
+        filter: alpha(opacity=0) \9; /*IE9- 透明度设置 【滤镜】*/
     }
     #img6{
         -webkit-transition: all ease-out 1s;
@@ -39,6 +39,9 @@
         opacity: 0;
         filter: alpha(opacity=0) \9;
     }
+    .border{
+        border: 1px solid red;
+    }
 </style>
 </head>
 <body>
@@ -46,12 +49,13 @@
         <li>
             <label>行内样式修改：</label>
             <button id="button1">点击</button>
-            <img src="../css3/img/lss.jpg" alt="" id="img1">
+            <!-- <img src="../css3/img/lss.jpg" alt="" id="img1"> -->
+            <span id="img1">行内样式</span>
         </li>
         <li>
             <label>class外联样式：</label>
             <button id="button2">点击</button>
-            <img src="../css3/img/lss.jpg" alt="" id="img2">
+            <img src="../css3/img/lss.jpg" alt="" class="border hiddenx" id="img2">
         </li>
         <li>
             <label>CSS3透明度动画渐隐渐现：</label>
@@ -94,51 +98,54 @@
     // el.style.display: 元素style属性中的display属性 获取和设置
     // el.style.cssText: 元素的完整style属性 获取和设置
     b1.onclick = function(){
-        if( img1.style.display == "none" ){
-        // if( img0.style.cssText ){
-        //     img0.style.cssText = "";
-            img1.style.display = "inline-block";
+        // if( img1.style.display == "none" ){
+        if( img1.style.cssText ){
+            img1.style.cssText = "";
+            // img1.style.display = "inline-block";
+            // img1.style.marginLeft = "100px";
         }else{
-            img1.style.display = "none";
-            // img0.style.cssText = "display:none;";
+            // img1.style.display = "none";
+            img1.style.cssText = "display: none;";
         }
     };
 
     // el.className: 元素的class属性 多个class属性之间用空格分隔
     // el.classList: contains() add() remove()
     b2.onclick = function(){
-        // if( img2.classList ){
-        //     if( img2.classList.contains("hidden") ){
-        //         img2.classList.remove("hidden");
-        //     }else{
-        //         img2.classList.add("hidden");
-        //     }
-        // }else{
-            if( img2.className == "hidden" ){
-                img2.className = "";
+        if( img2.classList ){
+            if( img2.classList.contains("hidden") ){
+                img2.classList.remove("hidden");
             }else{
-                img2.className = "hidden";
+                img2.classList.add("hidden");
+            }
+        }else{
+            // if( img2.className == "hidden" ){
+            //     img2.className = "";
+            // }else{
+            //     img2.className = "hidden";
+            // }
+
+            // if( img2.className.indexOf("hidden") == -1 ){
+            //     img2.className = img2.className + " hidden";
+            // }else{
+            //     img2.className = img2.className.replace("hidden", "");
+            // }
+
+            var classList = img2.className.split(/\s+/), 
+                index = -1;
+            for (var i = 0; i < classList.length; i++) {
+                if( classList[i] == "hidden" ){
+                    index = i;
+                    classList[i] = "";
+                }
+            };
+            if( index == -1 ){
+                img2.className = img2.className + " hidden";
+            }else{
+                img2.className = classList.join(" ");
             }
 
-        //     if( img2.className.indexOf("hidden") != -1 ){
-        //         img2.className = img2.className.replace("hidden", "");
-        //     }else{
-        //         img2.className = img2.className + " hidden";
-        //     }
-
-        //     var classList = img2.className.split(/\s+/), 
-        //         index = -1;
-        //     for (var i = 0; i < classList.length; i++) {
-        //         if( classList[i] == "hidden" ){
-        //             index = i;
-        //             classList[i] = "";
-        //         }
-        //     };
-        //     if( index == -1 ){
-        //         img2.className = classList.join(" ") + " hidden";
-        //     }
-
-        // }
+        }
     };
 
     // 同上： 完全css实现的动画不兼容 IE10- 浏览器
@@ -164,11 +171,13 @@
                 opacity = opacity + animateRate;
                 img4.style.cssText = 'opacity: '+opacity/100+';' 
                     +'filter: alpha(opacity='+opacity+')';
+                // img4.style.marginLeft = opacity + "px";
+    // img4.style.cssText = "transform: rotate("+opacity+"deg);";
                 if( opacity >= 100 || opacity <= 0 ){
                     clearInterval( interval );
                     isRun = false;
                 }
-            },20);
+            },10);
         };
     b4.onclick = function(){
         if( !isRun ){
@@ -214,6 +223,36 @@
         }
     };
 
+    // 因为跟b4 类似, 参数重名, 故使用匿名方法定义执行
+    (function(){
+        var 
+            isRun,  // 是不是正在动画中
+            interval, // 轮询
+            opacity = 100, //透明度
+            animateRate = 5,
+            run = function(){
+                clearInterval( interval );
+                isRun = true;
+                interval = setInterval(function(){
+                    opacity = opacity + animateRate;
+                    img6.style.cssText = ''
+                        +'transition:none;'
+                        +'opacity:'+opacity/100+';'
+                        +'transform: scale('+opacity/100+') rotate('+3.6*opacity+'deg)';
+                    
+                    if( opacity >= 100 || opacity <= 0 ){
+                        clearInterval( interval );
+                        isRun = false;
+                    }
+                },20);
+            };
+        b6.onclick = function(){
+            if( !isRun ){
+                animateRate = -animateRate;
+                run();
+            }
+        };
+    })();
 
 </script>
 </body>
