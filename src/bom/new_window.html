@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h2>内容</h2>
+
+<script>
+var myWindow, interval;
+var left = 0, dir = 1, words = "一边动，一边写字儿。一边动，一边写字儿。一边动，一边写字儿。一边动，一边写字儿。一边动，一边写字儿。";
+
+document.onclick = function(){
+    if( !myWindow || myWindow.closed ){
+        myWindow = window.open('','','width=300,height=200');
+        
+        clearInterval( interval );
+        interval = setInterval(function(){
+            if( left < 0 ){
+                dir = 1;
+            }
+
+            if( left < 1000 ){
+                left += dir;
+                myWindow.moveTo(left,left/2);
+                if(left%20==0){
+                    myWindow.document.body.innerHTML = words.substring(0, left/20 );
+                }
+            }else{
+                dir = -1;
+                left += dir;
+                myWindow.moveTo(left,left/2);
+            }
+        },20);  
+    }
+};
+</script> 
+</body>
+</html>

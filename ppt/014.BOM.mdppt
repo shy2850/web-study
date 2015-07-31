@@ -1,0 +1,57 @@
+title: BOM
+speaker: 时扬扬
+transition: cards
+
+[slide]
+# 什么是BOM
+
+- BOM( Browser Object Model )浏览器对象模型， 描述和修改浏览器状态、行为、特征等操作的API。
+
+
+[slide]
+# Location 
+<http://www.w3school.com.cn/jsref/dom_obj_location.asp>
+
+- location结构。
+- href
+- hash
+- search
+- 实例：a 标签和 hash 
+- 实例：search参数封装
+
+[slide data-transition="glue"]
+
+# Navigator
+<http://www.w3school.com.cn/jsref/dom_obj_navigator.asp>
+- 携带客户端浏览器相关信息
+- userAgent
+
+
+[slide]
+# Screen
+<http://www.w3school.com.cn/jsref/dom_obj_screen.asp>
+
+- Screen 对象包含有关客户端显示屏幕的信息。
+- Screen 对象属性均为只读属性
+- 没有应用于 screen 对象的公开标准，不过所有浏览器都支持该对象。
+
+[slide data-transition="newspaper"]
+# Open-Window
+类似 a 标签的 target="_blank" 效果
+
+- 创建
+- 操作
+- open页面操作opener页面
+- 安全问题
+
+
+[slide]
+
+# iframe 
+<http://www.w3school.com.cn/jsref/dom_obj_iframe.asp>
+
+- 兼容性获取
+- document 、 window
+- 实例： iframe自适应高度
+
+
