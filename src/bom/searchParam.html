@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>search解析</title>
+</head>
+<body>
+	
+
+<script>
+(function(){
+	var search = window.location.search.substring(1);
+
+	if( !search ){
+		return;
+	}
+
+	var group = search.split("&");
+	var result = {};
+	for (var i = 0; i < group.length; i++) {
+		var kv = group[i].split("="),
+			k = kv[0],
+			v = decodeURIComponent( kv[1] );
+		if( "[object Array]" == Object.prototype.toString.call(result[k]) ){
+			result[k].push(v);
+		}else if( result[k] ){
+			result[k] = [result[k],v];
+		}else{
+			result[k] = v;
+		}
+	};
+
+	document.write( "<br />" + result.name );
+	document.write( "<br />" + result.age );
+	document.write( "<br />" + result.hobby );
+
+})();
+
+</script>
+</body>
+</html>

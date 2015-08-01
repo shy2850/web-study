@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Main</title>
+<script src="../dom/selector.js"></script>
+<script src="../dom/event.js"></script>
+</head>
+<body>
+	
+	<div id="main">
+		主页面-主元素
+	</div>
+
+	<input type="text" id="input">
+
+	<iframe src="iframe-test.html" name="iff" id="iff" frameborder="0" width="600" height="400"></iframe>
+	
+<script>
+	var main = $("#main");
+	on( main, "click", function(){
+		var win = open("opened.html","","width=600,height=400,left=200,top=100");
+	});
+
+	var input = $("#input");
+	var doc = $("#iff")[0].contentDocument || window.frames["iff"].document;
+	on( input, "keyup", function(){
+		doc.getElementById('input').value = this.value;
+	});
+</script>
+</body>
+</html>

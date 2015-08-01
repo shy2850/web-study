@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+	h2{}
+	#head{}
+	.ul-list{}
+</style>
+<script src="selector.js"></script>
+<script src="event.js"></script>
+</head>
+<body>
+	
+	<div id="head">
+		<h2>头</h2>
+	</div>
+	
+	<ul class="ul-list red list pannel ">
+		<li><a href="http://f2e-server.com" target="_blank">选项1</a></li>
+		<li><a href="#" class="red">选项2</a></li>
+		<li class="red blue"><a href="#">选项3</a></li>
+		<li><a href="#">选项4</a></li>
+		<li class="last"><a href="#">选项5</a></li>
+		<div>4785378</div>
+	</ul>
+
+
+<script>
+	var ul = $('.list'),
+		li = $('li', ul[0]),
+		a = $('a', li[0]);
+
+	on(document, "click", function(e){
+		var tar = e.target || e.srcElement;
+		//console.log( tar.tagName );
+		if( tar.tagName.toLowerCase() == "li" || tar.parentNode.tagName.toLowerCase() == "li" ){
+			var l = document.createElement("li");
+			l.innerHTML = "新来的list";
+			ul[0].appendChild( l );
+		}
+	});
+
+	on(a[0], "click", function(e){
+		alert( "a" );
+		//e.stopPropagation();  //阻止事件冒泡
+		e.preventDefault();  // 取消默认事件
+	});
+
+	// var redList = $('.red', ul);
+
+	// for (var i = 0; i < redList.length; i++) {
+	// 	console.log( redList[i].innerHTML );
+	// };
+
+	// var head = $("h2");
+
+	// on( head, "click", function(e){
+	// 	alert( this.innerHTML );
+	// });
+
+	// on( head, "click", function(e){
+	// 	alert( this.outerHTML );
+	// });
+
+	// on( head, "click", function(e){
+	// 	alert( "3nd event" );
+	// });
+
+	// head.addEventListener( "mouseover", function(e){
+	// 	alert( this.innerHTML );
+	// });
+	// head.addEventListener("mouseout", function(e){
+	// 	alert( this.outerHTML );
+	// });
+
+	// console.log(document.all);
+
+</script>
+</body>
+</html>
