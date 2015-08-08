@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tabs</title>
+	<style>
+		.tab-holder{
+			width: 300px;
+			margin: 20px auto;
+			border: 1px solid #d2d2d2;
+		}
+		.handle{
+			height: 30px;
+			line-height: 30px;
+		}
+		.handle a{
+			background-color: #d2d2d2;
+			color: #333;
+			text-decoration: none;
+			float: left;
+			width: 98px;
+			text-align: center;
+			border: 1px solid #d2d2d2;
+		}
+		a.current{
+			border: 1px solid #d2d2d2;
+			border-bottom: 1px solid #fff;
+			background-color: #fff;
+		}
+		.show{
+			clear: both;
+			padding: .5em;
+			position: relative;
+			height: 80px;
+			overflow: hidden;
+		}
+		.show-inner{
+			left: 0;
+			width: 100%;
+			height: 100px;
+		} 
+		.show .current{
+			display: block;
+		}
+	</style>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+	<div id="tab-holder" class="tab-holder">
+		<div class="handle">
+			<a href="#show1">选项1</a>
+			<a href="#show2">选项2</a>
+			<a href="#show3">选项3</a>
+		</div>
+		<div class="show">
+			<div id="show1" class="show-inner">1. 卧室内容卧室内容</div>
+			<div id="show2" class="show-inner">2. 选项2选项2选项2选项2选项2选项2选项2选项2选项2选项2选项2选项2选项2</div>
+			<div id="show3" class="show-inner">3. 卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容</div>
+		</div>
+	</div>
+
+	<div id="tab-holder1" class="tab-holder">
+		<div class="handle">
+			<a href="#show-1">选项1</a>
+			<a href="#show-2">选项2</a>
+			<a href="#show-3">选项3</a>
+		</div>
+		<div class="show">
+			<div id="show-1" class="show-inner">1. 卧室内容卧室内容</div>
+			<div id="show-2" class="show-inner">2. 选项2选项2选项2选项2选项2选项2选项2选项2选项2选项2选项2选项2选项2</div>
+			<div id="show-3" class="show-inner">3. 卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容</div>
+		</div>
+	</div>
+	
+	<div id="tab-holder2" class="tab-holder">
+		<div class="handle">
+			<a href="#show1-1">选项1</a>
+			<a href="#show1-2">选项2</a>
+			<a href="#show1-3">选项3</a>
+		</div>
+		<div class="show">
+			<div id="show1-1" class="show-inner">1. 卧室内容卧室内容</div>
+			<div id="show1-2" class="show-inner">2. 选项2选项2选项2选项2选项2选项2选项2选项2选项2选项2选项2选项2选项2</div>
+			<div id="show1-3" class="show-inner">3. 卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容卧室内容</div>
+		</div>
+	</div>
+	<h2>flash</h2>
+<script src="tabs.js"></script>
+<script>
+	$("#tab-holder").tabs({type:"animate",auto:true});
+	$("#tab-holder1").tabs({type:"fade"});
+	$("#tab-holder2").tabs();
+</script>
+</body>
+</html>

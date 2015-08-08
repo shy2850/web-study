@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>marquee</title>
+
+<style>
+	ul,li{
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+	li{
+		list-style: none;
+	}
+	.marquee{
+		height: 150px;
+		overflow: hidden;
+		position: relative;
+	}
+	.marquee ul{
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	.marquee ul li{
+		height: 30px;
+		line-height: 30px;
+	}
+</style>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+	
+	<!-- <marquee direction="down">
+		<span>标签1</span>
+		<span>标签2</span>
+		<span>标签3</span>
+		<span>标签4</span>
+		<span>标签5</span>
+	</marquee>
+ -->
+	<div id="marquee-list" class="marquee">
+		<ul>
+			<li>列表选项1</li>
+			<li>列表选项2</li>
+			<li>列表选项3</li>
+			<li>列表选项4</li>
+			<li>列表选项5</li>
+			<li>列表选项6</li>
+			<li>列表选项7</li>
+			<li>列表选项8</li>
+			<li>列表选项9</li>
+			<li>列表选项10</li>
+		</ul>
+	</div>
+
+<script>
+	var holder = $("#marquee-list");
+	var ul = holder.children();
+
+	setInterval(function(){
+
+		ul.animate({
+			top: -30
+		},function(){
+			ul.css({top:0}).children().last().after( ul.children().first() ); 
+		});
+
+	}, 2000);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tabs</title>
+	<style>
+		.tab-holder{
+			width: 300px;
+			margin: 20px auto;
+			border: 1px solid #d2d2d2;
+			overflow: hidden;
+			position: relative;
+		}
+		.handle{
+			position: absolute;
+			bottom: 0;
+			right: 10px;
+			z-index: 1;
+			*margin-bottom: 20px;
+		}
+		.handle a{
+			display: inline-block;
+			width: 8px;
+			height: 8px;
+			padding: 0;
+			background-color: #09c;
+			text-decoration: none;
+			border-radius: 50%;
+		}
+		a.current{
+			background-color: #f00;
+		}
+		.show-frame{
+			overflow: hidden;
+			width: 300px;
+			height: 200px;
+		}
+		.show{
+			clear: both;
+			width: 1500px;
+			position: relative;
+			height: 200px;
+			overflow: hidden;
+		}
+		.show-inner{
+			width: 300px;
+			height: 200px;
+			float: left;
+		} 
+		.show-inner img{
+			display: block;
+			width: 300px;
+			height: 200px;
+		}
+	</style>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+	<div id="tab-holder" class="tab-holder">
+		<div class="handle">
+			<a href="#show1">&nbsp;</a>
+			<a href="#show2">&nbsp;</a>
+			<a href="#show3">&nbsp;</a>
+			<a href="#show4">&nbsp;</a>
+			<a href="#show5">&nbsp;</a>
+		</div>
+		<div class="show-frame">
+			<div class="show">
+				<div id="show1" class="show-inner"><img src="http://2.su.bdimg.com/skin_plus/272.jpg"></div>
+				<div id="show2" class="show-inner"><img src="http://2.su.bdimg.com/skin_plus/273.jpg"></div>
+				<div id="show3" class="show-inner"><img src="http://2.su.bdimg.com/skin_plus/274.jpg"></div>
+				<div id="show4" class="show-inner"><img src="http://2.su.bdimg.com/skin_plus/275.jpg"></div>
+				<div id="show5" class="show-inner"><img src="http://2.su.bdimg.com/skin_plus/276.jpg"></div>
+			</div>
+		</div>
+	</div>
+
+<script src="tabs.js"></script>
+<script>
+	$("#tab-holder").tabs({type:"slide",auto:true});
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+	
+<div id="head">
+	<img src="/placeholder.jpg" alt="" class="logo">
+	<h2>头部</h2>
+</div>
+
+
+<p>
+	<input type="button" value="按钮" disabled="disabled">
+</p>
+
+<script>
+	// sizzle 
+
+	var result = $("#head > img");
+
+	result.on("click",function(){
+		$(this).fadeOut().fadeIn();
+	});
+
+	setTimeout(function(){
+		$("[disabled]").val("延时完成").prop("disabled",false);
+
+	},2000);
+</script>
+</body>
+</html>
