@@ -1,0 +1,65 @@
+title: ajax
+speaker: 时扬扬
+transition: cards
+
+[slide]
+# AJAX
+
+- AJAX即“Asynchronous Javascript And XML”（异步JavaScript和XML）。
+- 广义上的ajax应该包括所有能够实现在url不变情况下网页获取服务器内容的方式
+- javascript中通常指 XMLHttpRequest( IE6的ActiveXObject("Microsoft.XMLHTTP") ) 对象以及相关的 api 
+- jsonp is what ？
+
+
+[slide]
+# XMLHttpRequest  
+<http://www.w3school.com.cn/ajax/ajax_xmlhttprequest_create.asp>
+
+- 对象创建。
+- 向服务器发送请求
+- GET 还是 POST
+- 异步 - True 或 False
+- 参数封装
+- ajax 2.0 支持文件上传和进度监听等
+
+
+[slide]
+
+# jQuery.ajax 
+- url / type
+- async
+- dataType
+- data
+- 实例： ajax获取不同HTML片段展示在当前页面
+
+
+[slide data-transition="glue"]
+
+# XMLHttpRequest 支持条件和注意事项
+
+- 同域支持 (file:// 协议不应被认可)
+    - 不支持跨域或服务器端的有条件跨域
+- 响应内容只支持纯文本和XML格式
+    - JSON封装和解析
+- 序列化字符串格式特点和封装转化 （☆）
+    - <http://webfuture.cn/wfQuery/js/util.js>
+- ajax2.0 下面使用 FormData （☆）
+    - <http://webfuture.cn/wfQuery/js/ajax.js>
+
+[slide]
+# JSONP
+
+- js资源文件的另一种使用方式。
+- 服务端支持(将数据用一个方法名和括弧包起来), 封装成js方法执行过程。
+- 总结差异：
+    - GET only
+    - 无同域限制
+    - 返回数据不需要严格的JSON字符串, 甚至支持function传递
+
+[slide data-transition="newspaper"]
+# iframe 异步
+
+- 修改src 达到修改页面展示的目的
+- iframe 表单提交
+- 基于iframe的文件异步上传 [http://i.webfuture.cn/demo/imageCrop.html](http://i.webfuture.cn/demo/imageCrop.html)
+
