@@ -1,0 +1,9 @@
+<%
+return function(){
+	response.writeHead(200, {
+		"content-type":"text/plain",
+		"Access-Control-Allow-Origin":"http://localhost"
+	});
+	response.end( JSON.stringify(request.data) );
+};
+%>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo1</title>
+</head>
+<body>
+	
+	<h2 id="text"></h2>
+
+<script>
+	document.onclick = function(){
+
+		var xhr;
+		// 创建 XMLHttpRequest 对象
+		// if( window.XMLHttpRequest ){
+			xhr = new XMLHttpRequest();
+		// }else{
+		// 	xhr = new ActiveXObject("Microsoft.XMLHTTP");
+		// }
+
+		xhr.onreadystatechange = function() {
+			// console.log( xhr.readyState );
+			if( xhr.readyState === 4 ){
+
+				if( xhr.status === 200){
+					document.getElementById('text').innerHTML 
+						= ( xhr.responseText );
+				}else{
+					alert( "服务器错误 或 请求地址有误" );
+				}
+
+			} 
+		};
+
+		xhr.open("GET","http://192.168.1.105/github/web-study/src/ajax/data/123.txt?a=1&b=2&b=3");
+		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xhr.send("a=1&b=2&b=3");
+
+		// console.log(123);
+	};
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax-upload</title>
+</head>
+<body>
+	
+<form id="form">
+	图片选择
+	<input type="file" name="file" id="file">
+	<br>
+	<img id="img">
+</form>
+
+<a href="javascript:void(0)" id="upload">图片上传</a>
+
+<script>
+	var form = document.getElementById('form');
+	var file = document.getElementById('file');
+	var img = document.getElementById('img');
+	var btn = document.getElementById('upload');
+
+	file.onchange = function(){
+		btn.onclick = function(){
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function() {
+				if( xhr.readyState === 4 ){
+					if( xhr.status === 200){
+						// 成功 
+						var data = JSON.parse(xhr.responseText);
+						console.log( data );
+						img.src = data.pic;
+					}
+				} 
+			};
+			var fd = new FormData( form );
+			xhr.open("POST","data/upload.json");
+			xhr.send( fd );
+		};
+	};
+
+</script>
+</body>
+</html>

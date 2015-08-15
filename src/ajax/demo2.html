@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Demo2</title>
+	<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+	<h2 id="text"></h2>
+<script>
+	$(document).on("click",function(){
+
+		jQuery.ajax({
+			url: "http://192.168.1.105/github/web-study/src/ajax/data/jsonp.js",
+			// type: "post",
+			// data: $.param({
+			// 	a: 1,
+			// 	b: 2,
+			// 	c: [3,4,5]
+			// }, true),
+			data: [
+				{name: "a", value: 1},
+				{name: "b", value: 2},
+				{name: "c", value: 3},
+				{name: "d", value: 4},
+				{name: "fnname", value: "console.log"}
+			],
+			dataType: "jsonp",
+			// async: false,
+			success: function(res){
+				console.log( res );
+				$("#text").html( res );
+			},
+			error: function(){
+				alert( "服务端请求错误！" );
+			}
+		});
+
+		alert("ok");
+
+	});
+
+	// js对象型 -> 数组型
+	function obj2array(o){
+		var arr = []; //{a:1,b:[2,3]}
+		for(var k in o){
+			if( Object.prototype.toString.call( o[k] ) === "[object Array]" ){
+				for (var i = 0; i < o[k].length; i++) {
+					arr.push({
+						name: k,
+						value: o[k][i]
+					})
+				};
+			}else{
+				arr.push({
+					name: k,
+					value: o[k]
+				})
+			}
+		}
+		return arr;
+	}
+
+	function arr2param(arr){
+		return arr.map(function(item){
+			return item.name+ "="+ item.value; 
+		}).join("&")
+	}
+
+</script>
+</body>
+</html>
