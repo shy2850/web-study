@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单操作</title>
+<style>
+	#form-holder{
+		width: 500px;
+		margin: 0 auto;
+		text-align: center;
+	}
+</style>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="form-holder">
+<form action="result.htm">
+	<p>
+		<input type="text" name="user_name" id="user_name" value="1">
+		<i class="info"></i>
+	</p>
+	<p>
+		<input type="password" name="password" id="password">
+	</p>	
+	<p>
+		<input type="number" name="age" id="age">
+		<i class="info"></i>
+	</p>
+	<p>
+		<input type="text"	name="salary" id="salary" placeholder="请输入薪资">
+		<i class="info"></i>
+	</p>
+	<p>
+		<input type="radio" name="sex" id="sex-0" value="0"><label for="sex-0">男</label>
+		<input type="radio" name="sex" id="sex-1" value="1"><label for="sex-1">女</label>
+	</p>
+	<p>
+		<input type="submit" value="提交">
+	</p>
+</form>
+</div>
+
+<!--[if lte IE 9]>
+<script src="js/placeholder.js"></script>
+<![endif]-->
+
+<script src="js/number.js"></script>
+<script>
+/*
+	$.trim:  对一个字符串进行左右去空格的操作
+
+*/
+
+	$("#user_name").on("blur", function(){
+		if( $.trim( $(this).val() ).match(/^\w{2,5}$/) ){
+			alert("ok");
+			$(this).next().text("");
+		}else{
+			$(this)
+				.trigger("focus")
+				.next()
+				.text("有问题， 重写");
+
+		}
+	});
+
+	$("#age").on("blur keyup", function(){
+		if( this.value > 60 || this.value < 18 ){
+			$(this)
+				.trigger("focus")
+				.next().text("年龄必须在18~60岁之间");
+		}else{
+			$(this)
+				.next().text("");
+		}
+	});
+
+	$("#salary").on("blur keyup", function(){
+		var ne = $(this).next();
+
+		/* 整数部分最多6位， 小数部分最多2位； 不超过500000.00 */
+
+		ne.text( /^500000(\.0{1,2})?$|^[0-4]?\d{0,5}(\.\d{1,2})?$/.test(this.value) );
+
+		// if( this.value > 1000000){
+		// 	ne.text( "太土豪了！, 重填" );
+		// }else if(this.value < 1000 ){
+		// 	ne.text( "坑人呢！, 重填" );
+		// }else{
+		// 	ne.text( NumberUtil.toRMB(this.value) );
+		// }
+	});
+
+	$("form").on("submit", function(e){
+
+		var arr = $(this).serializeArray();
+
+		for (var i = 0; i < arr.length; i++) {
+			switch(arr[i].name){
+				case "user_name": 
+					if(!arr[i].value.match(/^\w{2,5}$/)){
+						alert( "user_name 有问题， 重写" );
+						e.preventDefault();
+						return;
+					}
+					break;
+				case "":
+
+			}
+		};
+
+
+	});
+
+</script>
+</body>
+</html>

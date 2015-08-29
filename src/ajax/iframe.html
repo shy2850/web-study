@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>iframe文件异步上传</title>
+	<style>
+	#iframe-file{
+		width: 70px;
+		height: 22px;
+		position: absolute;
+		left: 10px;
+		top: 10px;
+		opacity: 0;
+		filter: alpha(opacity=0);
+	}
+	</style>
+	<script src="js/frame-upload.js"></script>
+</head>
+<body>
+
+	<p>
+		<button id="fileSelect">
+			选择文件
+		</button>
+		<span id="filename"></span>
+	</p>
+
+	<br>
+	<button id="fileUpload">
+		上传文件
+	</button>
+	<br>
+	<p id="img">
+		
+	</p>
+
+<script>
+	// document.getElementById('fileUpload').onclick = function(){
+	// 	var win = window.frames["iframe-file"];
+
+	// 	document.getElementById("iframe-file").onload = function(){
+	// 		var result = JSON.parse( win.document.body.innerHTML );
+			
+	// 		console.log(result);
+
+	// 		var str = "";
+	// 		for (var i = 0; i < result.length; i++) {
+	// 			'<img src="http://192.168.1.108/test/'+result[i].file.name+'" alt="" />'
+	// 			str += '<img src="http://192.168.1.108/test/'+result[i].file.name+'"/>';
+	// 		};
+	// 		document.getElementById("img").innerHTML = str;
+
+	// 		this.onload = null;
+	// 		this.src = "iframe-file.html";
+	// 	};
+
+	// 	win.document.getElementsByTagName('form')[0]
+	// 		.submit();
+	// };
+
+	var btn = document.getElementById('fileSelect'),
+		frameUpload = new FrameUpload({
+			el: btn,
+			src: "iframe-file.html",
+			action: "/upload?uploadUrl=test",
+			onchange: function(){
+				btn.innerHTML = "已选择文件";
+				document.getElementById("filename").innerHTML = this.value;
+			},
+			afterUpload: function(data){
+				btn.innerHTML = "选择文件";
+				document.getElementById("img").innerHTML = 
+					'<img src="http://192.168.1.108/test/'+data[0].file.name+'" alt="" />';
+			},
+			ready: function(){
+				this.setAttribute("accept","image/*");
+			}
+		});
+
+	document.getElementById("fileUpload").onclick = function(){
+		try{
+			frameUpload.submit();
+		}catch(e){
+			alert(e);
+		}
+	};
+
+</script>
+
+</body>
+</html>

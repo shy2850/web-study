@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单验证</title>
+	<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://webfuture.cn/xhcms_2014/js/jquery-form/form-valid.min.js"></script>
+<style>
+	#form-content{
+		width: 840px;
+		background: #fff;
+		margin: 30px auto;
+	}
+	#form-content .fm-item{
+		line-height: 30px;
+		padding-left: 150px;
+		height: 30px;
+		overflow: visible;
+		position: relative;
+	}
+	#form-content .fm-item .i-label{
+		display: block;
+		position: absolute;
+		top:0;
+		left: 0;
+		width: 150px;
+		height: 30px;
+		text-align: right;
+	}
+	#form-content .fm-item .i-text{
+		width: 170px;
+	}
+
+	#form-content .fm-item .i-radio{
+		margin-left: 10px;
+	}
+
+
+	.tip-error{
+		font-size: 12px;
+		padding-left: 8px;
+		color: #c00;
+	}
+	.tip-default{
+		font-size: 12px;
+		padding-left: 8px;
+		color: #666;
+	}
+	.title{
+		text-align: center;
+		line-height: 60px;
+		font-family: 'Microsoft Yahei';
+	}
+</style>
+</head>
+<body>
+	
+	<div id="form-content">
+		<h2 class="title">jQuery.form上面进行校验参数预绑定[render]，即可通过表单校验 </h2>
+ 		<form id="form0">
+ 			<div class="fm-item">
+ 				<label class="i-label">申请金额：</label>
+ 				<input class="i-text" name="amount" id="amount">
+ 			</div>
+ 			<div class="fm-item">
+ 				<label class="i-label">姓名：</label>
+ 				<input class="i-text" name="name" id="name">
+ 			</div>
+ 			<div class="fm-item">
+ 				<label class="i-label">出生日期：</label>
+ 				<input class="i-text" name="birth" id="birth">
+ 			</div>
+ 			<div class="fm-item">
+ 				<input type="submit" value="提交" id="submit">
+ 			</div>
+ 		</form>
+	</div>
+	<script type="text/javascript">
+		/**jQuery.form上面进行校验参数预绑定[render]，即可通过表单校验 */
+		jQuery.form.render({
+			"#amount":{
+				defaultTip:"您期望的申请金额",
+				option: 'blur keyup',
+				regexp: /^500000(\.0{1,2})?$|^[0-4]?\d{0,5}(\.\d{1,2})?$/, // 匹配1-7位的纯数字
+				errorTip: "请输入500000.00以下的数值",
+				required: true,
+				requiredTip: "申请金额不能为空"
+			},
+			"#name":{
+				option: 'blur',
+				defaultTip: '您的姓名',
+				minlen: 2,
+				maxlen: 20,
+				lenTip: '姓名的长度必须为2-20位',
+				type: 'chinese',
+				errorTip: '姓名必须为纯汉字'
+			},
+			"#birth":{
+				required: true
+			}
+		});
+		jQuery("#form0").submit(function(){
+			return jQuery("#form0").formValid();
+		});
+	</script>
+
+
+</body>
+</html>
