@@ -1,0 +1,36 @@
+title: handlebars和jQuery扩展的列表数据带分页插件
+speaker: 时扬扬
+transition: cards
+
+[slide]
+# 为什么需要这样的东西？
+
+- 前后分离的互联网开发模式。
+	- 高度重复的步骤（ajax、数据判断、模板渲染、HTML填充等）
+- 可重复的js代码配置在HTML标签中得以体现。
+	- 增加页面代码可读性
+
+
+[slide]
+# 构建它需要哪些知识  
+
+- jQuery-API
+	- ajax
+	- data/attr
+	- extend
+- 一个 分页插件
+	- 构建分页基础
+- handlebars
+	- 基本语法
+	- 可能的扩展
+- json 
+
+[slide]
+
+# 对比 MV* 库
+事实上这样的工具及其类似 MV* 库的雏形
+
+- Angular 的模板引擎和数据加载方式
+	- 不同于纯字符串的模板引擎
+	- 单向与双向绑定
+
