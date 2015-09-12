@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简单对象名称映射</title>
+	<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://apps.bdimg.com/libs/handlebars.js/2.0.0-alpha.4/handlebars.min.js"></script>
+	<script src="template-init.js"></script>
+<style>
+	.pager{
+	    line-height: 30px;
+	}
+	.pager span, .pager a{
+	    padding: 4px 6px;
+	    margin: 0 4px;
+	    cursor: pointer;
+	    color: #777;
+	    text-decoration: none;
+	}
+	.pager .pagination-curr{
+	    color: #0666b6;
+	}
+</style>
+</head>
+<body>
+<form action="">
+	<input type="hidden" name="Pagesize" value="4">
+	<input type="text" name="abc">
+	<input type="submit" value="刷新">
+</form>
+<div id="main" data-url="data/data.json" data-form="form" data-pager=".pager"></div>
+<script type="template" id="template">
+	<h2>{{title}}</h2>
+	<table style="width:100%;">
+		<tr>
+			<td>序号</td>
+			<td>姓名</td>
+			<td>性别</td>
+			<td>年龄</td>
+		</tr>
+		{{#each persons}}
+		<tr {{#if red}}style="color:{{red}};"{{/if}}>
+			<td>{{index}}</td>
+			<td>{{name}}</td>
+			<td>{{sex}}</td>
+			<td>{{age}}</td>
+		</tr>
+		{{/each}}
+	</table>
+	{{#with footer}}
+	<div class="footer">{{copy}} 所有权归 {{org}}。</div>	
+	{{/with}}	
+</script>
+<div class="pager"></div>	
+<script>
+
+new T( $("#main") );
+
+</script>
+
+</body>
+</html>

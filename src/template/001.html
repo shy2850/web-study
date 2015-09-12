@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简单对象名称映射</title>
+</head>
+<body>
+
+<div id="main">
+	
+</div>
+
+<script type="template" id="template">
+	<h2>{{title}}</h2>
+	<table style="width:100%;">
+		<tr>
+			<td>序号</td>
+			<td>姓名</td>
+			<td>性别</td>
+			<td>年龄</td>
+		</tr>
+		{{each persons}}
+		<tr {{if red}}style="color:{{red}};"{{/if}}>
+			<td>{{index}}</td>
+			<td>{{name}}</td>
+			<td>{{sex}}</td>
+			<td>{{age}}</td>
+		</tr>
+		{{/each}}
+	</table>
+	{{with footer}}
+	<div class="footer">{{copy}} 所有权归 {{org}}。</div>	
+	{{/with}}	
+</script>	
+<script src="template.js"></script>
+<script>
+var template = document.getElementById('template');
+var main = document.getElementById('main');
+
+var html = template.innerHTML;	
+
+var data = {
+	title: "标题2",
+	persons:[
+		{index: 1, name: "shy2850", sex:"男", age: 27, red:"red"},
+		{index: 2, name: "shy1", sex:"男", age: 27},
+		{index: 3, name: "shy2", sex:"男", age: 27, red:"green"},
+		{index: 4, name: "shy22", sex:"男", age: 27, red:"blue"},
+		{index: 5, name: "shy25", sex:"男", age: 27, red:"yellow"},
+		{index: 6, name: "sfy0010", sex:"女", age: 20, red:"#f60"}
+	],
+	footer:{
+		copy: "2014~2015 &copy; ",
+		org: "百度"
+	}
+};
+
+main.innerHTML = Template(html, data);
+
+
+</script>
+
+</body>
+</html>

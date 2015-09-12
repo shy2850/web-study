@@ -1,0 +1,51 @@
+{
+    "title": "标题2",
+    "persons": [
+        {
+            "index": 1,
+            "name": "shy2850",
+            "sex": "男",
+            "age": 27,
+            "red": "red"
+        },
+        {
+            "index": 2,
+            "name": "shy1",
+            "sex": "23",
+            "age": 27
+        },
+        {
+            "index": 3,
+            "name": "shy2",
+            "sex": "男",
+            "age": 27,
+            "red": "green"
+        },
+        {
+            "index": 4,
+            "name": "shy22",
+            "sex": "男",
+            "age": 27,
+            "red": "blue"
+        },
+        {
+            "index": 5,
+            "name": "shy25",
+            "sex": "男",
+            "age": 27,
+            "red": "yellow"
+        },
+        {
+            "index": 6,
+            "name": "sfy0010",
+            "sex": "女",
+            "age": 20,
+            "red": "#f60"
+        }
+    ],
+    "total": 20,
+    "footer": {
+        "copy": "2014~2015 &copy; ",
+        "org": "百度"
+    }
+}
