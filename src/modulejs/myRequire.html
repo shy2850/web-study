@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="myRequire.js"></script>
+</head>
+<body>
+    
+<script>
+define("math", function(require, module, exports){
+
+    var max = function () {
+        //  将参数修改为数组
+        var arr = [].slice.call(arguments);
+
+        var max = arr[0];
+
+        arr.forEach(function(item){
+            if(max < item){
+                max = item;
+            }
+        });
+
+        return max;
+    };
+
+    console.log('math.js');
+    
+    module.exports = {
+        sqrt: function(n) {
+            return n * n;
+        },
+        max: max
+    };
+
+
+});
+
+define('test', function(require, module, exports){
+
+    console.log( 'require before' );
+    
+    var _Math = require('math');
+
+    console.log( _Math.sqrt(15) );
+
+});
+
+require('test');
+</script>
+
+</body>
+</html>
