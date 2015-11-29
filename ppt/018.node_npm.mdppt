@@ -1,0 +1,18 @@
+title: Nodejs & npm
+speaker: 时扬扬
+transition: cards
+
+[slide]
+# Nodejs是什么？
+
+1.编程语言：Node.js  java 
+1.运行环境：js->Node.js(V8)  java->JVM
+1.包管理工具： Node.js->npm  javaEE-> maven
+1.包管理依赖&寻找规则： 找 node_modules
+
+[slide]
+# NPM 
+
+1.cnpm 是什么？  npm install -g cnpm --registry=http://registry.npm.taobao.org
+2.安装软件和使用
+3.npm包管理规则 & 软件开发 （ 下节课 ）
