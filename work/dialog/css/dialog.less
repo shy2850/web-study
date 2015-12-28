@@ -1,0 +1,66 @@
+@modalWidth: 400px;
+@fontColor: #333;
+@borderColor: #d2d2d2;
+@hrefColor: #03d;
+@boxPadding: 10px;
+
+html,
+body,
+div,
+.reset{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+.dialog-mask{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(100, 100, 100, .5);
+}
+.dialog-holder{
+	position: fixed;
+	bottom: 50%;
+	left: 50%;
+	width: @modalWidth;
+	margin-left: @modalWidth / -2;
+	background: #fff;
+	color: @fontColor;
+	box-sizing: border-box;
+	border: 1px solid @borderColor;
+	padding:@boxPadding;
+	a{
+		text-decoration: none;
+		color: @fontColor;
+		&:hover{
+			color: #03d;
+		}
+	}
+	.dialog-head{
+		position: relative;
+		border-bottom: 1px solid @borderColor;
+		padding-bottom: @boxPadding;
+		.dialog-close{
+			position: absolute;
+			right: 0;
+		}
+	}
+	.dialog-body{
+		padding: @boxPadding 0;
+	}
+	.dialog-foot{
+		text-align: right;
+		height: 30px;
+		line-height: 30px;
+		a{
+			border-radius: 3px;
+			border: 1px solid @borderColor;
+			padding: 3px 10px;
+			&:hover{
+				border-color: @hrefColor;
+			}
+		}
+	}
+}

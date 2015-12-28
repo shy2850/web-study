@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基本构型</title>
+	<link rel="stylesheet" href="$rename[css/dialog.less]">
+	<!--[if lte IE 6]>
+		<link rel="stylesheet" href="$rename[css/dialog-ie6.less]">
+	<![endif]-->
+</head>
+<body class="with-dialog-mask">
+	<!-- 占位的, 没啥用 -->
+	<pre>$include[README.md]</pre>
+	<div class="dialog-mask">
+	</div>
+	<div class="dialog-holder">
+		<h3 class="dialog-head reset">
+			<span class="dialog-title">温馨提示</span>
+			<a href="javascript:void(0);" class="dialog-close">&times;</a>
+		</h3>
+		<div class="dialog-body">
+			基本提示信息
+		</div>
+		<div class="dialog-foot">
+			<a href="javascript:void(0);" class="btn-ensure">确定</a>
+			<a href="javascript:void(0);" class="btn-cancel">取消</a>
+		</div>
+	</div>
+</body>
+</html>
