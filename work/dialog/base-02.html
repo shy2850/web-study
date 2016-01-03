@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本构型</title>
+    <link rel="stylesheet" href="$rename[css/dialog.less]">
+    <!--[if lte IE 6]>
+        <link rel="stylesheet" href="$rename[css/dialog-ie6.less]">
+    <![endif]-->
+</head>
+<body class="with-dialog-mask">
+    <!-- 占位的, 没啥用 -->
+    <pre onclick="showDialog();">$include[README.md]</pre>
+<script>
+    var mask = document.createElement('div');
+    var holder = document.createElement('div');
+    var head = document.createElement('h3');
+    var title = document.createElement('span');
+    var close = document.createElement('a');
+    var body = document.createElement('div');
+    var foot = document.createElement('div');
+    var ok = document.createElement('a');
+    var cancel = document.createElement('a');
+
+    mask.className = 'dialog-mask';
+    holder.className = 'dialog-holder';
+    head.className = 'dialog-head';
+
+    title.className = 'dialog-title';
+    title.innerHTML = '温馨提示';
+
+    close.href = 'javascript:void(0);'; 
+    close.className = 'dialog-close';
+    close.innerHTML = '&times';
+
+    body.className = 'dialog-body';
+    body.innerHTML = '基本提示信息';
+
+    foot.className = 'dialog-foot';
+
+    ok.href = 'javascript:void(0);';
+    ok.className = 'btn-ensure';
+    ok.innerHTML = '确定';
+
+    cancel.href = 'javascript:void(0);';
+    ok.className = 'btn-cancel';
+    cancel.innerHTML = '取消';
+
+    head.appendChild(title);
+    head.appendChild(close);
+
+    foot.appendChild(ok);
+    foot.appendChild(cancel);
+
+    holder.appendChild(head);
+    holder.appendChild(body);
+    holder.appendChild(foot);
+
+    document.body.appendChild(mask);
+    document.body.appendChild(holder);
+
+    function closeDialog() {
+        mask.style.display = 'none';
+        holder.style.display = 'none';
+    }
+    function showDialog() {
+        mask.style.display = 'block';
+        holder.style.display = 'block';
+    }
+    close.onclick = 
+    cancel.onclick = 
+    ok.onclick = closeDialog;
+
+</script>
+</body>
+</html>

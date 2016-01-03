@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本构型</title>
+    <link rel="stylesheet" href="$rename[css/dialog.less]">
+    <!--[if lte IE 6]>
+        <link rel="stylesheet" href="$rename[css/dialog-ie6.less]">
+    <![endif]-->
+</head>
+<body class="with-dialog-mask">
+    <!-- 占位的, 没啥用 -->
+    <pre onclick="showDialog();">$include[README.md]</pre>
+    <div class="dialog-mask">
+    </div>
+    <div class="dialog-holder">
+        <h3 class="dialog-head">
+            <span class="dialog-title">温馨提示</span>
+            <a href="javascript:void(0);" class="dialog-close">&times;</a>
+        </h3>
+        <div class="dialog-body">
+            基本提示信息
+        </div>
+        <div class="dialog-foot">
+            <a href="javascript:void(0);" class="btn-ensure">确定</a>
+            <a href="javascript:void(0);" class="btn-cancel">取消</a>
+        </div>
+    </div>
+<script>
+    function createByHtml(html){
+        var parent = document.createElement('div');
+        parent.innerHTML = html;
+        return parent.children[0];
+    }
+
+    var mask = createByHtml('<div class="dialog-mask"></div>');
+    var holder = createByHtml('<div class="dialog-holder"></div>');
+    var head = createByHtml('<div class="dialog-head"></div>');
+    var title = createByHtml('<span class="dialog-title">温馨提示</span>');
+    var close = createByHtml('<a href="javascript:void(0);" class="dialog-close">&times;</a>');
+    var body = createByHtml('<div class="dialog-body">基本提示信息</div>');
+    var foot = createByHtml('<div class="dialog-foot"></div>');
+    var ok = createByHtml('<a href="javascript:void(0);" class="btn-ensure">确定</a>');
+    var cancel = createByHtml('<a href="javascript:void(0);" class="btn-cancel">取消</a>');
+
+</script>
+</body>
+</html>
