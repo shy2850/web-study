@@ -15,10 +15,12 @@
 <script>
 var i = 0;
 document.body.children[0].onclick = function () {
-    Dialog.confirm(i, function (yes) {
+    Dialog.alert(i, function (yes) {
         if (yes) {
             i++;
         }
+    }, {
+        buttons: ['+1']
     });
 };
 </script>

@@ -55,8 +55,7 @@
         var t = this;
         var o = extend({}, defaultOptions);
         extend(o, opt);
-
-        o.showMask ? show(mask) : hide(mask);
+        
         mask.onclick = o.closeWithMask ? function () {
             t.hide(false); // 取消的关闭
         } : null;
@@ -96,11 +95,27 @@
         show: function () {
             show(holder);
             this.options.showMask ? show(mask) : hide(mask);
+            return this;
         },
         hide: function (y) {
             this.options.onClose(y);
+            if (y && typeof this.__yesFn === 'function') {
+                this.__yesFn();
+            }
+            else if (typeof this.__noFn === 'function') {
+                this.__noFn();
+            }
             hide(holder);
             hide(mask);
+            return this;
+        },
+        yes: function (fn) {
+            this.__yesFn = fn;
+            return this;
+        },
+        no: function (fn) {
+            this.__noFn = fn;
+            return this;
         }
     };
     Dialog.confirm = function (info, cbk, opt) {
