@@ -1,0 +1,163 @@
+title: 前端基本规范 & 常见问题分享
+speaker: 李骏波 & 时扬扬
+
+[slide]
+## 前端代码规范的必要性
+不规范的书写方式可能在表现&逻辑出现异常，这是前端里面的__错误__。
+
+- 大小写: 规范中标签和属性均不允许出现大写, 如: jQuery.data
+- 标签嵌套: 错误的标签嵌套在浏览器中容错处理导致重排
+- 没有声明的局部变量自动变为全局变量
+- 在不同的DOCTYPE下， css表现不一致
+- 其他问题 。。。
+
+
+
+
+[slide]
+## 基本页面结构
+严格遵循基本结构规范
+
+``` html
+<!DOCTYPE html> <!-- 强制使用的文档规范 -->
+<html>
+<head>
+    <meta charset="UTF-8">  <!-- meta标签一般定义页面整体信息 -->
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">  <!-- css前置 -->
+</head>
+<body>
+    <div id="container">  <!-- 页面内容建议统一容器 -->
+    </div>
+    <script src="script.js"></script>  <!-- 业务js后置 -->
+</body>
+</html>
+```
+
+
+
+[slide]
+## 标签嵌套规则
+
+1. 理解 inline & block(list-item, table-row, table-cell)
+1. h标签和p标签不允许产生嵌套
+```
+<h2><p></p></h2>
+```
+1. 组合标签不允许乱入
+```
+<ul><li></li><li></li><div></div></ul>
+```
+1. 虽然a和span可以互相嵌套，需要杜绝递归嵌套
+```
+<span><a href="#"><span>xx</span></a></span>
+```
+1. inline元素内杜绝非inline(inline-block)元素
+1. 自封闭标签
+
+
+
+
+[slide]
+## css与选择器
+
+1. 推荐使用[LESS](009.less.mdppt)进行css书写
+1. 优先复用已有组件样式，基本样式使用基础库class，杜绝copy修改
+1. 因为css几乎是只增不减且全局前置的，新增css代码时须__考虑复用__，
+    (如果组件基本相同时, 设计存在差异化, 应当同设计师协商统一组件)
+1. 杜绝使用 `!important` 约束, 避免使用过大的 `z-index`
+1. css命名: 选择器应该均为小写字符，单词之间使用中划线 `-` 分隔
+1. 鼓励 2~4 级嵌套, 鼓励使用合适的选择器代替不必要的class定义
+``` css
+form input[disabled] {color: #aaa; border: #aaa; background: #bbb;}
+.interlaced li:nth-child(odd) {background: #d2d2d2;} /* 隔行变色 */
+```
+
+
+
+
+[slide]
+## 行内css
+1. 尽可能**避免写行内样式**
+```
+    <div id="detail"
+        style="width: 100%, opacity: .7; border: 1px solid #777"></div>
+```
+1. js设置多组样式使用组合样式表
+``` javascript
+    $('#detail').css({
+        width: '100%',
+        opacity: .7,
+        border: '1px solid #777'
+    });
+```
+1.  推荐写法
+``` html
+    <style>.detail-disabled {width: 100%, opacity: .7; border: 1px solid #777};</style>
+    <div id="detail" class="detail-disabled"></div>
+    <script>
+    $('#detail').toggleClass('detail-disabled');
+    </script>
+```
+
+
+
+[slide]
+## js 通用规则
+1. 所有局部变量必须显式声明， 作用域内不得重复声明
+1. 接口参数超过3个使用对象参数方式改写
+1. 不要对否定意义的参数值赋予差异化业务逻辑 (0, null, undefined, false, '')
+```
+    if (!data) {
+        // TODO
+    }
+    else {
+
+    }
+```
+1. 所有业务代码均应进行模块化的封装
+
+    - 理解模块化封装的意义
+    - 知道模块化封装的基本差异
+1. ES6了解
+
+
+
+[slide]
+## jQuery 部分注意事项
+1. 明确对象是否jQuery实例，并缓存对象，避免 `$()` 重复包含
+1. 事件绑定统一使用 `on` & `off`， off 单一事件须添加具体事件参数
+```
+    var toggle = function () {
+        $(this).toggleClass('open');
+    };
+    $(document).on('click', '.btn.btn-dropdown', toggle);
+    $(document).off('click', '.btn.btn-dropdown', toggle);
+```
+1. 避免使用 `e.stopPropagation()` 阻止事件冒泡
+1. 表单元素的特殊属性操作使用 `prop` 方法
+1. 数据绑定使用 data方法（react组件中失效）
+1. 推荐统一的ajax书写方式
+```
+    $.ajax({
+        url, data, dataType
+        success: () => {},
+        error: () => {}
+    });
+```
+
+[slide]
+## ES6/JSX 部分注意事项
+1. 所有组件命名均使用首字母大写 例如: `Form`, `FormInput`
+1. 组件内的属性和方法首字母小写 例如: `render`, `resetForm`
+1. ...
+
+
+[slide]
+# 资料 
+
+1. [FECS规范集](https://github.com/ecomfe/spec)
+2. [LESS](http://www.bootcss.com/p/lesscss/)
+3. [React](http://reactjs.org/)
+4. [ES6](http://es6.ruanyifeng.com/)
+

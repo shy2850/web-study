@@ -6,14 +6,14 @@
 <%
     return function(){
         var fs = require("fs");
-        fs.readdir(request.util.conf.root + "/" + request.$.title.replace("index.html","ppt") ,function(error,files){ 
+        fs.readdir(request.util.conf.root + "/" + request.$.title.replace("/index.html","/") + 'ppt' ,function(error,files){ 
             if(error){
                 response.end(  __p );
             }else{
                 files.map(function(filename){
-                	var file = filename.replace(/\.\w+$/,".html")
+                	var file = filename.replace(/\.mdppt$/,".md")
                     if( file.match(/^\d+\./) ){
-                        __p += '<a href="ppt/'+(request.data._build_ ? file : filename) +'">'+file+'</a>';
+                        __p += '<a target="_blank" href="ppt/'+(request.data._build_ ? file : filename) +'">'+file+'</a>';
                     }
                 });
                 response.writeHead(200,{"Content-Type":"text/html"});

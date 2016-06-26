@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <script src="myRequire.js"></script>
+    <!-- <script src="myRequire.js"></script> -->
+    <script src="http://apps.bdimg.com/libs/require.js/2.1.9/require.min.js"></script>
+    <!-- <script src="http://apps.bdimg.com/libs/seajs/2.3.0/sea.js"></script> -->
 </head>
 <body>
     
 <script>
-define("math", function(require, module, exports){
+define("math", ['require', 'exports', 'module'], function(require, exports, module){
 
     var max = function () {
         //  将参数修改为数组
@@ -27,27 +29,22 @@ define("math", function(require, module, exports){
 
     console.log('math.js');
     
-    module.exports = {
-        sqrt: function(n) {
-            return n * n;
-        },
-        max: max
-    };
-
+    exports.max = max;
 
 });
 
-define('test', function(require, module, exports){
+define('test', ['require', 'exports', 'module', 'math'], function(require, exports, module){
 
     console.log( 'require before' );
     
     var _Math = require('math');
 
-    console.log( _Math.sqrt(15) );
+    console.log( _Math.max(15, 12) );
 
 });
 
-require('test');
+require(['test']);
+// seajs.use('test');
 </script>
 
 </body>

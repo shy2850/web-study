@@ -17,7 +17,10 @@
 <script>
     var show = document.getElementById('show');
     var d = new Dialog({
-        content: '我就是一个弹框！'
+        content: '我就是一个弹框！',
+        onClose: function (y) {
+            // alert('onClose: :' + y);
+        }
     }).yes(function () {
         show.innerHTML = 'YES！';
     }).no(function () {

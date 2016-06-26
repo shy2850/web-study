@@ -55,7 +55,7 @@
         var t = this;
         var o = extend({}, defaultOptions);
         extend(o, opt);
-        
+
         mask.onclick = o.closeWithMask ? function () {
             t.hide(false); // 取消的关闭
         } : null;
