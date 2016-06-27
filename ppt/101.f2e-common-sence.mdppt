@@ -40,6 +40,7 @@ speaker: 李骏波 & 时扬扬
 ## 标签嵌套规则
 
 1. 理解 inline & block(list-item, table-row, table-cell)
+1. inline元素内杜绝非inline(inline-block)元素
 1. h标签和p标签不允许产生嵌套
 ```
 <h2><p></p></h2>
@@ -52,7 +53,6 @@ speaker: 李骏波 & 时扬扬
 ```
 <span><a href="#"><span>xx</span></a></span>
 ```
-1. inline元素内杜绝非inline(inline-block)元素
 1. 自封闭标签
 
 
@@ -67,7 +67,7 @@ speaker: 李骏波 & 时扬扬
     (如果组件基本相同时, 设计存在差异化, 应当同设计师协商统一组件)
 1. 杜绝使用 `!important` 约束, 避免使用过大的 `z-index`
 1. css命名: 选择器应该均为小写字符，单词之间使用中划线 `-` 分隔
-1. 鼓励 2~4 级嵌套, 鼓励使用合适的选择器代替不必要的class定义
+1. 鼓励 2~4 级嵌套, 鼓励使用合适的选择器代替不必要的class定义, 避免冗余选择器
 ``` css
 form input[disabled] {color: #aaa; border: #aaa; background: #bbb;}
 .interlaced li:nth-child(odd) {background: #d2d2d2;} /* 隔行变色 */
@@ -119,13 +119,13 @@ form input[disabled] {color: #aaa; border: #aaa; background: #bbb;}
 
     - 理解模块化封装的意义
     - 知道模块化封装的基本差异
-1. ES6了解
+
 
 
 
 [slide]
 ## jQuery 部分注意事项
-1. 明确对象是否jQuery实例，并缓存对象，避免 `$()` 重复包含
+1. 明确对象是否jQuery实例，并__缓存对象__，避免 `$()` 重复包含
 1. 事件绑定统一使用 `on` & `off`， off 单一事件须添加具体事件参数
 ```
     var toggle = function () {
@@ -134,9 +134,14 @@ form input[disabled] {color: #aaa; border: #aaa; background: #bbb;}
     $(document).on('click', '.btn.btn-dropdown', toggle);
     $(document).off('click', '.btn.btn-dropdown', toggle);
 ```
+1. 事件代理主对象尽可能精确
 1. 避免使用 `e.stopPropagation()` 阻止事件冒泡
 1. 表单元素的特殊属性操作使用 `prop` 方法
 1. 数据绑定使用 data方法（react组件中失效）
+
+    - data-param="123" 通过 data('param') 可以获取结果 '123'。
+    - data方法可以直接将符合JSON格式的字符串数据转化为对象。
+    - 首次获取data数据后，数据绑定将失去和attribute的关联，继续修改获取指定的data属性不修改属性（这个和input元素的value属性类似，同样修改值不会改动value属性）。
 1. 推荐统一的ajax书写方式
 ```
     $.ajax({
@@ -150,7 +155,12 @@ form input[disabled] {color: #aaa; border: #aaa; background: #bbb;}
 ## ES6/JSX 部分注意事项
 1. 所有组件命名均使用首字母大写 例如: `Form`, `FormInput`
 1. 组件内的属性和方法首字母小写 例如: `render`, `resetForm`
-1. ...
+1. ES6了解
+
+    - [const、let](https://github.com/ecomfe/spec/blob/master/es-next-style-guide.md#user-content-31-%E5%8F%98%E9%87%8F)
+    - [解构&参数解构](https://github.com/ecomfe/spec/blob/master/es-next-style-guide.md#user-content-32-%E8%A7%A3%E6%9E%84)
+    - [模板字符串](https://github.com/ecomfe/spec/blob/master/es-next-style-guide.md#user-content-33-%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2)
+    - [箭头函数](https://github.com/ecomfe/spec/blob/master/es-next-style-guide.md#user-content-35-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0)
 
 
 [slide]

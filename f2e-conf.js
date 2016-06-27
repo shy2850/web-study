@@ -1,4 +1,4 @@
 exports.localhost = {
     root: __dirname,
-    autoprefixer: true
+    port: 8088
 };
