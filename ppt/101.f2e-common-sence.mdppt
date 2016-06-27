@@ -138,10 +138,6 @@ form input[disabled] {color: #aaa; border: #aaa; background: #bbb;}
 1. 避免使用 `e.stopPropagation()` 阻止事件冒泡
 1. 表单元素的特殊属性操作使用 `prop` 方法
 1. 数据绑定使用 data方法（react组件中失效）
-
-    - data-param="123" 通过 data('param') 可以获取结果 '123'。
-    - data方法可以直接将符合JSON格式的字符串数据转化为对象。
-    - 首次获取data数据后，数据绑定将失去和attribute的关联，继续修改获取指定的data属性不修改属性（这个和input元素的value属性类似，同样修改值不会改动value属性）。
 1. 推荐统一的ajax书写方式
 ```
     $.ajax({
