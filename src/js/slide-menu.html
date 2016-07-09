@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,13 +24,16 @@
         font: normal 14px/30px "Simsun";
         overflow: hidden;
         height: 30px;
-        width: 60px;
-        padding: 0 20px 0 10px;
+        width: 90px;
         border: 1px solid #d2d2d2;
         margin: 20px auto;
     }
+    #menu a {
+        padding: 0 20px 0 10px;
+    }
     #menu:hover{
         height: auto;
+        overflow: visible;
     }
     #menu .inner{
         position: relative;
@@ -53,17 +57,60 @@
         -o-transform: rotate(-90deg);
         transform: rotate(-90deg);
     }
+    #menu li {
+        position: relative;
+        overflow: hidden;
+    }
+    #menu li:hover {
+        overflow: visible;
+    }
+    #menu li > .more {
+        position: absolute;
+        left: 90px;
+        top: 0;
+        width: 90px;
+        text-indent: 10px;
+        border: 1px solid #d2d2d2;
+    }
+    #menu li > .more:before {
+        content: '>';
+        position: absolute;
+        left: -30px;
+        top: 0;
+    }
+    #menu li:hover > .more:before {
+        content: '<';
+    }
 </style>
 </head>
 <body>
     
     <div id="menu">
-        <a href="#" class="inner">我的订单</a>
+        <a href="#" class="inner">顶级菜单</a>
         <ul class="more">
-            <li><a href="#">待支付</a></li>
-            <li><a href="#">待收货</a></li>
-            <li><a href="#">待评价</a></li>
-            <li><a href="#">修改订单</a></li>
+            <li>
+                <a href="#">菜单一</a>
+                <ul class="more">
+                    <li><a href="#">菜单一</a></li>
+                    <li><a href="#">菜单二</a>
+                        <ul class="more">
+                            <li><a href="#">菜单二</a></li>
+                            <li><a href="#">菜单三</a></li>
+                            <li><a href="#">菜单四</a>
+                                <ul class="more">
+                                    <li><a href="#">菜单三</a></li>
+                                    <li><a href="#">菜单四</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#">菜单三</a></li>
+                    <li><a href="#">菜单四</a></li>
+                </ul>
+            </li>
+            <li><a href="#">菜单二</a></li>
+            <li><a href="#">菜单三</a></li>
+            <li><a href="#">菜单四</a></li>
         </ul>
     </div>
 
