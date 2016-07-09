@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本构型</title>
+    <link rel="stylesheet" href="$rename[css/dialog.less]">
+    <!--[if lte IE 6]>
+        <link rel="stylesheet" href="$rename[css/dialog-ie6.less]">
+    <![endif]-->
+</head>
+<body class="with-dialog-mask">
+    <!-- 占位的, 没啥用 -->
+    <pre>$include[README.md]</pre>
+<script src="$rename[js/dialog.js]"></script>
+<script>
+var i = 0;
+document.body.children[0].onclick = function () {
+    Dialog.alert(i, function (yes) {
+        if (yes) {
+            i++;
+        }
+    }, {
+        buttons: ['+1']
+    });
+};
+</script>
+</body>
+</html>

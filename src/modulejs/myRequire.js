@@ -4,28 +4,34 @@ var define;
     var defineModules = {};
     var modules = {};
 
-    require = function(moduleName){
-        if( modules[moduleName] ){
-            return modules[moduleName];
+    require = function(moduleId){
+        if (Object.prototype.toString.call(moduleId) === "[object Array]") {
+            for (var i = 0; i < moduleId.length; i++) {
+                require(moduleId[i]);
+            }
+            return;
         }
-        else if( defineModules[moduleName] ){
+        if( modules[moduleId] ){
+            return modules[moduleId];
+        }
+        else if( defineModules[moduleId] ){
             var module = {
                 exports: {}
             };
-            var res = defineModules[moduleName](require, module, module.exports);
+            var res = defineModules[moduleId](require, module.exports, module);
             if( typeof res === "undefined" ){
                 return module.exports;
             }else {
                 return res;
             }
         }else{
-            throw new Error('module not fond: ' + moduleName);
+            throw new Error('module not fond: ' + moduleId);
         }
     };
 
 
-    define = function(moduleName, fn){
-        defineModules[moduleName] = fn;
+    define = function(moduleId, deps, fn){
+        defineModules[moduleId] = fn;
     };
 
 })();
