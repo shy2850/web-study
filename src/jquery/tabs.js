@@ -79,7 +79,7 @@ $.fn.extend({
             });
 
             next.on('click', function(){
-                render(index - 1);
+                render(index + 1);
             });
 
             render(cfg.current);
