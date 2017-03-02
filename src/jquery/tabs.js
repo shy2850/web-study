@@ -24,8 +24,8 @@ $.fn.extend({
             var btns = holder.find(cfg.handle).children();
             var show = holder.find(cfg.show)
             var items = show.children();
-            var prev = holder.find(conf.prev);
-            var next = holder.find(conf.next);
+            var prev = holder.find(cfg.prev);
+            var next = holder.find(cfg.next);
 
             var index = cfg.focus;
             var width = items.width();
