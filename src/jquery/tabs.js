@@ -5,6 +5,7 @@ $.fn.extend({
             auto: false,
             interval: 1200,
             current: 0,
+            repeat: true,
             max_focus: 0,
             type: 'show',
 
@@ -36,7 +37,13 @@ $.fn.extend({
             var height = items.height();
 
             function render (i) {
-                i = (i + max) % max;
+                if (cfg.repeat) {
+                    i = (i + max) % max;
+                }
+                else {
+                    i = Math.min(i, max);
+                    i = Math.max(i, 0);
+                }
                 index = i;
                 btns.eq(i).addClass(cfg.handle_current).siblings().removeClass(cfg.handle_current);
                 switch(cfg.type){
