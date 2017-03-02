@@ -5,6 +5,7 @@ $.fn.extend({
             auto: false,
             interval: 1200,
             current: 0,
+            max_focus: 0,
             type: 'show',
 
             handle: '.handle',
@@ -16,7 +17,9 @@ $.fn.extend({
             run_event: 'mouseout',
 
             btn_next: '.next',
-            btn_prev: '.prev'
+            btn_prev: '.prev',
+
+            onChange: function (index) {}
         }, cfg);
 
         return this.each(function(){
@@ -28,10 +31,12 @@ $.fn.extend({
             var next = holder.find(cfg.btn_next);
 
             var index = cfg.focus;
+            var max = cfg.max_focus || items.length,
             var width = items.width();
             var height = items.height();
 
             function render (i) {
+                i = (i + max) % max;
                 index = i;
                 btns.eq(i).addClass(cfg.handle_current).siblings().removeClass(cfg.handle_current);
                 switch(cfg.type){
@@ -52,6 +57,7 @@ $.fn.extend({
                         });
                         break;
                 }
+                cfg.onChange(i);
             }
 
             if( cfg.auto ){
@@ -64,8 +70,7 @@ $.fn.extend({
 
                 setInterval(function(){
                     if( if_hover ){return;}
-                    index = (index + 1) % items.length;
-                    render(index);
+                    render(index + 1);
                 }, cfg.interval);
             }
 
