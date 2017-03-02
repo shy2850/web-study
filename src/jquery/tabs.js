@@ -31,7 +31,7 @@ $.fn.extend({
 
 			function render (i) {
 				index = i;
-				btns.eq(i).addClass("current").siblings().removeClass("current");
+				btns.eq(i).addClass(cfg.handle_current).siblings().removeClass(cfg.handle_current);
 				switch(cfg.type){
 					case "slide":
 						show.animate({
