@@ -31,7 +31,7 @@ $.fn.extend({
             var next = holder.find(cfg.btn_next);
 
             var index = cfg.focus;
-            var max = cfg.max_focus || items.length,
+            var max = cfg.max_focus || items.length;
             var width = items.width();
             var height = items.height();
 
